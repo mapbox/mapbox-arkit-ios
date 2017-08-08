@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tXr-a1-R10">
+            <objects>
+                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="MapboxDirectionsARKitDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I5E-QN-iMS"/>
+                        <viewControllerLayoutGuide type="bottom" id="08K-pN-UH5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WlZ-Tt-52d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b4U-HR-kJu" customClass="ARSCNView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsd-Rz-tXC">
+                                        <rect key="frame" x="0.0" y="358" width="375" height="309"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fU-8Q-aWN" customClass="MGLMapView">
+                                                <rect key="frame" x="8" y="50" width="359" height="247"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crosshairs" translatesAutoresizingMaskIntoConstraints="NO" id="MPh-OQ-ogG">
+                                                        <rect key="frame" x="154.5" y="98.5" width="50" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="5fZ-G2-0wV"/>
+                                                            <constraint firstAttribute="height" constant="50" id="dgy-rE-hZy"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <gestureRecognizers/>
+                                                <constraints>
+                                                    <constraint firstItem="MPh-OQ-ogG" firstAttribute="centerX" secondItem="1fU-8Q-aWN" secondAttribute="centerX" id="4zY-3t-6Qh"/>
+                                                    <constraint firstItem="MPh-OQ-ogG" firstAttribute="centerY" secondItem="1fU-8Q-aWN" secondAttribute="centerY" id="mLt-yV-AHY"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="3h0-zO-5l0" appends="YES" id="MVi-tw-mRm"/>
+                                                </connections>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Move the camera" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hr6-xB-9hH">
+                                                <rect key="frame" x="87" y="11" width="200" height="26.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="DtG-dU-lwp"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="1fU-8Q-aWN" firstAttribute="leading" secondItem="xsd-Rz-tXC" secondAttribute="leadingMargin" id="Cig-Im-L7b"/>
+                                            <constraint firstItem="hr6-xB-9hH" firstAttribute="centerX" secondItem="xsd-Rz-tXC" secondAttribute="centerX" id="D4e-rP-Lai"/>
+                                            <constraint firstItem="1fU-8Q-aWN" firstAttribute="top" secondItem="xsd-Rz-tXC" secondAttribute="topMargin" constant="42" id="HwI-Rx-Myh"/>
+                                            <constraint firstItem="hr6-xB-9hH" firstAttribute="top" secondItem="xsd-Rz-tXC" secondAttribute="top" constant="11" id="RJ0-73-hmW"/>
+                                            <constraint firstAttribute="height" constant="309" id="h2B-II-LFk"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="1fU-8Q-aWN" secondAttribute="trailing" id="sFZ-IK-L7b"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="1fU-8Q-aWN" secondAttribute="bottom" constant="4" id="siI-Ja-NhE"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="xsd-Rz-tXC" secondAttribute="trailing" id="5hc-6x-DwD"/>
+                                    <constraint firstItem="xsd-Rz-tXC" firstAttribute="leading" secondItem="b4U-HR-kJu" secondAttribute="leading" id="aaQ-ME-kF6"/>
+                                    <constraint firstAttribute="bottom" secondItem="xsd-Rz-tXC" secondAttribute="bottom" id="gm1-V0-ioj"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="b4U-HR-kJu" secondAttribute="trailing" id="M48-1X-ZGb"/>
+                            <constraint firstAttribute="bottom" secondItem="b4U-HR-kJu" secondAttribute="bottom" id="ORW-8m-lmm"/>
+                            <constraint firstItem="b4U-HR-kJu" firstAttribute="leading" secondItem="WlZ-Tt-52d" secondAttribute="leading" id="XpT-LB-dFg"/>
+                            <constraint firstItem="b4U-HR-kJu" firstAttribute="top" secondItem="WlZ-Tt-52d" secondAttribute="top" id="hl7-cY-Z0X"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cameraStateInfoLabel" destination="hr6-xB-9hH" id="9eg-IA-zDf"/>
+                        <outlet property="controlsContainerView" destination="xsd-Rz-tXC" id="yZg-Ci-rl9"/>
+                        <outlet property="mapView" destination="1fU-8Q-aWN" id="E5k-A7-mMS"/>
+                        <outlet property="sceneView" destination="b4U-HR-kJu" id="SES-JT-mEz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="3h0-zO-5l0">
+                    <connections>
+                        <action selector="didLongPress:" destination="BV1-FR-VrT" id="lLL-RJ-udU"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="crosshairs" width="640" height="638"/>
+    </resources>
+</document>

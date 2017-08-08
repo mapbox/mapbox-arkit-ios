@@ -1,0 +1,36 @@
+PODS:
+  - Mapbox-iOS-SDK (3.6.1)
+  - MapboxDirections.swift (0.10.1):
+    - Polyline (~> 4.1)
+  - Polyline (4.1.1)
+  - Turf-swift (0.0.1)
+
+DEPENDENCIES:
+  - Mapbox-iOS-SDK (= 3.6.1)
+  - MapboxDirections.swift (from `https://github.com/mapbox/MapboxDirections.swift.git`, branch `swift-4`)
+  - Turf-swift (from `https://github.com/mapbox/turf-swift.git`)
+
+EXTERNAL SOURCES:
+  MapboxDirections.swift:
+    :branch: swift-4
+    :git: https://github.com/mapbox/MapboxDirections.swift.git
+  Turf-swift:
+    :git: https://github.com/mapbox/turf-swift.git
+
+CHECKOUT OPTIONS:
+  MapboxDirections.swift:
+    :commit: 2f3f7e4c334bbfc965152d4de7246e7289c47c67
+    :git: https://github.com/mapbox/MapboxDirections.swift.git
+  Turf-swift:
+    :commit: 9f573df18b11b3dabf858c3a0e44c6326b72ac3a
+    :git: https://github.com/mapbox/turf-swift.git
+
+SPEC CHECKSUMS:
+  Mapbox-iOS-SDK: 7dd2a0fd08e9444b9c47f6e8fd1c32509bce3243
+  MapboxDirections.swift: 5f902908b30a8e744fa1a240f8f6707d7142147e
+  Polyline: 381d1e699fd12508f97cfc468478dfbab67edf1f
+  Turf-swift: 2f2da15a9b3415a1dca5362c6e798bc2638435e6
+
+PODFILE CHECKSUM: 462093d6208bb563af3c582f020bb777f1dbcef0
+
+COCOAPODS: 1.2.1
