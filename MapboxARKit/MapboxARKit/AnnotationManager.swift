@@ -1,7 +1,6 @@
 import ARKit
 import SpriteKit
 import CoreLocation
-import GLKit
 
 @objc public protocol AnnotationManagerDelegate {
     

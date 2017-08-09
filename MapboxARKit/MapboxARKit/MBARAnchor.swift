@@ -1,5 +1,6 @@
 import ARKit
 import CoreLocation
+import Turf
 
 public class MBARAnchor: ARAnchor {
     
@@ -18,9 +19,8 @@ internal extension simd_float4x4 {
     // the bearing of the end location and "push" it out the required distance
     func transformMatrix(originLocation: CLLocation, location: CLLocation) -> simd_float4x4 {
         // Determine the distance and bearing between the start and end locations
-        let distance = Float(location.distance(from: originLocation))
-        let bearingDegrees = originLocation.bearingTo(endLocation: location)
-        let bearing = GLKMathDegreesToRadians(bearingDegrees)
+        let distance = Float(location.distance(from: originLocation))        
+        let bearing = GLKMathDegreesToRadians(Float(originLocation.coordinate.direction(to: location.coordinate)))
         
         // Effectively copy the position of the start location, rotate it about
         // the bearing of the end location and "push" it out the required distance
@@ -65,7 +65,9 @@ internal extension CLLocation {
         let longitudeStart = GLKMathDegreesToRadians(Float(coordinate.longitude))
         let latitudeEnd = GLKMathDegreesToRadians(Float(endLocation.coordinate.latitude))
         let longitudeEnd = GLKMathDegreesToRadians(Float(endLocation.coordinate.longitude))
+        
         let longitudinalDistance = longitudeEnd - longitudeStart
+        
         let y = sin(longitudinalDistance) * cos(latitudeEnd)
         let x = cos(latitudeStart) * sin(latitudeEnd) - sin(latitudeStart) * cos(latitudeEnd) * cos(longitudinalDistance)
         let radiansBearing = atan2(y, x)

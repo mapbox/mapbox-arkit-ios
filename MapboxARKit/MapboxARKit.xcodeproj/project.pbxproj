@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4032F70A1F3BC4CF002D0E35 /* Turf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4032F7071F3BC492002D0E35 /* Turf.framework */; };
 		40D7228E1F3A4F3D00466721 /* MapboxARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D722841F3A4F3D00466721 /* MapboxARKit.framework */; };
 		40D722931F3A4F3D00466721 /* MapboxARKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D722921F3A4F3D00466721 /* MapboxARKitTests.swift */; };
 		40D722951F3A4F3D00466721 /* MapboxARKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 40D722871F3A4F3D00466721 /* MapboxARKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -15,6 +16,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4032F7061F3BC492002D0E35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4032F6FB1F3BC492002D0E35 /* Turf.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 35650AF01F150DC500B5C158;
+			remoteInfo = Turf;
+		};
+		4032F7081F3BC492002D0E35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4032F6FB1F3BC492002D0E35 /* Turf.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 35650AF91F150DC500B5C158;
+			remoteInfo = TurfTests;
+		};
 		40D7228F1F3A4F3D00466721 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 40D7227B1F3A4F3D00466721 /* Project object */;
@@ -25,6 +40,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4032F6E61F3BC3D5002D0E35 /* Turf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Turf.framework; path = ../Carthage/Build/iOS/Turf.framework; sourceTree = "<group>"; };
+		4032F6EA1F3BC492002D0E35 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		4032F6ED1F3BC492002D0E35 /* .Turf-swift.version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".Turf-swift.version"; sourceTree = "<group>"; };
+		4032F6EF1F3BC492002D0E35 /* 471C72CA-D553-38D7-AFCD-5C9B6ABD61CE.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "471C72CA-D553-38D7-AFCD-5C9B6ABD61CE.bcsymbolmap"; sourceTree = "<group>"; };
+		4032F6F01F3BC492002D0E35 /* 4CF76595-4F10-35AD-86DF-ABD4771E048F.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "4CF76595-4F10-35AD-86DF-ABD4771E048F.bcsymbolmap"; sourceTree = "<group>"; };
+		4032F6F11F3BC492002D0E35 /* Turf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Turf.framework; sourceTree = "<group>"; };
+		4032F6F21F3BC492002D0E35 /* Turf.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Turf.framework.dSYM; sourceTree = "<group>"; };
+		4032F6F31F3BC492002D0E35 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		4032F6F41F3BC492002D0E35 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4032F6F61F3BC492002D0E35 /* CoreLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocation.swift; sourceTree = "<group>"; };
+		4032F6F71F3BC492002D0E35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4032F6F81F3BC492002D0E35 /* Turf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Turf.h; sourceTree = "<group>"; };
+		4032F6F91F3BC492002D0E35 /* Turf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Turf.swift; sourceTree = "<group>"; };
+		4032F6FA1F3BC492002D0E35 /* turf-swift.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = "turf-swift.podspec"; sourceTree = "<group>"; };
+		4032F6FB1F3BC492002D0E35 /* Turf.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Turf.xcodeproj; sourceTree = "<group>"; };
+		4032F6FF1F3BC492002D0E35 /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
+		4032F7011F3BC492002D0E35 /* dc-line.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = "dc-line.geojson"; sourceTree = "<group>"; };
+		4032F7021F3BC492002D0E35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4032F7031F3BC492002D0E35 /* TurfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurfTests.swift; sourceTree = "<group>"; };
 		40D722841F3A4F3D00466721 /* MapboxARKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxARKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40D722871F3A4F3D00466721 /* MapboxARKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapboxARKit.h; sourceTree = "<group>"; };
 		40D722881F3A4F3D00466721 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4032F70A1F3BC4CF002D0E35 /* Turf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,12 +89,113 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4032F6E51F3BC3D4002D0E35 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4032F6E61F3BC3D5002D0E35 /* Turf.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4032F6E81F3BC478002D0E35 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				4032F6E91F3BC492002D0E35 /* Turf-swift */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		4032F6E91F3BC492002D0E35 /* Turf-swift */ = {
+			isa = PBXGroup;
+			children = (
+				4032F6EA1F3BC492002D0E35 /* .gitignore */,
+				4032F6EB1F3BC492002D0E35 /* Carthage */,
+				4032F6F31F3BC492002D0E35 /* LICENSE.md */,
+				4032F6F41F3BC492002D0E35 /* README.md */,
+				4032F6F51F3BC492002D0E35 /* Turf */,
+				4032F6FA1F3BC492002D0E35 /* turf-swift.podspec */,
+				4032F6FB1F3BC492002D0E35 /* Turf.xcodeproj */,
+				4032F6FE1F3BC492002D0E35 /* TurfTests */,
+			);
+			name = "Turf-swift";
+			path = "../../Carthage/Checkouts/Turf-swift";
+			sourceTree = "<group>";
+		};
+		4032F6EB1F3BC492002D0E35 /* Carthage */ = {
+			isa = PBXGroup;
+			children = (
+				4032F6EC1F3BC492002D0E35 /* Build */,
+			);
+			path = Carthage;
+			sourceTree = "<group>";
+		};
+		4032F6EC1F3BC492002D0E35 /* Build */ = {
+			isa = PBXGroup;
+			children = (
+				4032F6ED1F3BC492002D0E35 /* .Turf-swift.version */,
+				4032F6EE1F3BC492002D0E35 /* iOS */,
+			);
+			path = Build;
+			sourceTree = "<group>";
+		};
+		4032F6EE1F3BC492002D0E35 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				4032F6EF1F3BC492002D0E35 /* 471C72CA-D553-38D7-AFCD-5C9B6ABD61CE.bcsymbolmap */,
+				4032F6F01F3BC492002D0E35 /* 4CF76595-4F10-35AD-86DF-ABD4771E048F.bcsymbolmap */,
+				4032F6F11F3BC492002D0E35 /* Turf.framework */,
+				4032F6F21F3BC492002D0E35 /* Turf.framework.dSYM */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		4032F6F51F3BC492002D0E35 /* Turf */ = {
+			isa = PBXGroup;
+			children = (
+				4032F6F61F3BC492002D0E35 /* CoreLocation.swift */,
+				4032F6F71F3BC492002D0E35 /* Info.plist */,
+				4032F6F81F3BC492002D0E35 /* Turf.h */,
+				4032F6F91F3BC492002D0E35 /* Turf.swift */,
+			);
+			path = Turf;
+			sourceTree = "<group>";
+		};
+		4032F6FC1F3BC492002D0E35 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4032F7071F3BC492002D0E35 /* Turf.framework */,
+				4032F7091F3BC492002D0E35 /* TurfTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4032F6FE1F3BC492002D0E35 /* TurfTests */ = {
+			isa = PBXGroup;
+			children = (
+				4032F6FF1F3BC492002D0E35 /* Fixture.swift */,
+				4032F7001F3BC492002D0E35 /* Fixtures */,
+				4032F7021F3BC492002D0E35 /* Info.plist */,
+				4032F7031F3BC492002D0E35 /* TurfTests.swift */,
+			);
+			path = TurfTests;
+			sourceTree = "<group>";
+		};
+		4032F7001F3BC492002D0E35 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				4032F7011F3BC492002D0E35 /* dc-line.geojson */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
 		40D7227A1F3A4F3D00466721 = {
 			isa = PBXGroup;
 			children = (
+				4032F6E81F3BC478002D0E35 /* Dependencies */,
 				40D722861F3A4F3D00466721 /* MapboxARKit */,
 				40D722911F3A4F3D00466721 /* MapboxARKitTests */,
 				40D722851F3A4F3D00466721 /* Products */,
+				4032F6E51F3BC3D4002D0E35 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -155,9 +291,11 @@
 					40D722831F3A4F3D00466721 = {
 						CreatedOnToolsVersion = 9.0;
 						LastSwiftMigration = 0900;
+						ProvisioningStyle = Manual;
 					};
 					40D7228C1F3A4F3D00466721 = {
 						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -171,6 +309,12 @@
 			mainGroup = 40D7227A1F3A4F3D00466721;
 			productRefGroup = 40D722851F3A4F3D00466721 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4032F6FC1F3BC492002D0E35 /* Products */;
+					ProjectRef = 4032F6FB1F3BC492002D0E35 /* Turf.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				40D722831F3A4F3D00466721 /* MapboxARKit */,
@@ -178,6 +322,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4032F7071F3BC492002D0E35 /* Turf.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Turf.framework;
+			remoteRef = 4032F7061F3BC492002D0E35 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4032F7091F3BC492002D0E35 /* TurfTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = TurfTests.xctest;
+			remoteRef = 4032F7081F3BC492002D0E35 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		40D722821F3A4F3D00466721 /* Resources */ = {
@@ -339,6 +500,8 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -349,6 +512,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mapbox.com.MapboxARKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -361,6 +525,8 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -371,6 +537,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mapbox.com.MapboxARKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -381,11 +548,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = U2WTRY45TY;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MapboxARKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mapbox.com.MapboxARKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -395,11 +564,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = U2WTRY45TY;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MapboxARKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mapbox.com.MapboxARKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
