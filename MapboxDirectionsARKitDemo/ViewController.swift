@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     
     // Create an instance of MapboxDirections to simplify querying the Mapbox Directions API
     let directions = Directions.shared
-    var annotationManager: MapboxARAnnotationManager!
+    var annotationManager: AnnotationManager!
     
     // Define a shape collection that will be used to hold the point geometries that define the
     // directions routeline
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         sceneView.scene = SCNScene()
         
         // Create an AR annotation manager and give it a reference to the AR session
-        annotationManager = MapboxARAnnotationManager(session: sceneView.session)
+        annotationManager = AnnotationManager(session: sceneView.session)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -165,7 +165,7 @@ class ViewController: UIViewController {
     
     private func startSession() {
         // Create a session configuration
-        let configuration = ARWorldTrackingSessionConfiguration()
+        let configuration = ARWorldTrackingConfiguration()
         
         if automaticallyFindTrueNorth {
            configuration.worldAlignment = .gravityAndHeading
@@ -199,7 +199,7 @@ class ViewController: UIViewController {
 extension ViewController: ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        let mapboxAnchor = anchor as! MapboxARAnchor
+        let mapboxAnchor = anchor as! MBARAnchor
         
         // Add a sphere node in AR for each anchor. Depending on if there is a callout string,
         // The node will have an image floating above it has a callout that provides additional
@@ -229,13 +229,13 @@ extension ViewController: ARSCNViewDelegate {
     // MARK: - Utility methods for ARSCNViewDelegate
     
     // Adds an SCNNode with a sphere geometry that loops through a color interpolation animation from green to blue
-    func addSphereNode(to node: SCNNode, for anchor: MapboxARAnchor) {
+    func addSphereNode(to node: SCNNode, for anchor: MBARAnchor) {
         let sphereNode = createSphereNode(with: 0.2, firstColor: UIColor.green, secondColor: UIColor.blue)
         node.addChildNode(sphereNode)
     }
     
     func addSphereNode(to node: SCNNode, for anchor: ARAnchor, with description: String) {
-        let firstColor = UIColor(colorLiteralRed: 0.0, green: 99/255.0, blue: 175/255.0, alpha: 1.0)
+        let firstColor = UIColor(red: 0.0, green: 99/255.0, blue: 175/255.0, alpha: 1.0)
         let sphereNode = createSphereNode(with: 0.5, firstColor: firstColor, secondColor: UIColor.green)
         
         // Based on key strings in the directions' descriptions, add a billboard node to the sphere node
@@ -293,7 +293,7 @@ extension ViewController: MGLMapViewDelegate {
         mapView.style?.addSource(annotationSource)
         let circleStyleLayer = MGLCircleStyleLayer(identifier: "circleStyleLayer", source: annotationSource)
         
-        let color = UIColor(colorLiteralRed: 147/255.0, green: 230/255.0, blue: 249/255.0, alpha: 1.0)
+        let color = UIColor(red: 147/255.0, green: 230/255.0, blue: 249/255.0, alpha: 1.0)
         let colorStops = ["small": MGLStyleValue<UIColor>(rawValue: color.withAlphaComponent(0.75)),
                           "big": MGLStyleValue<UIColor>(rawValue: color)]
         circleStyleLayer.circleColor = MGLStyleValue(

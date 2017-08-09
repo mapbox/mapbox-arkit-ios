@@ -10,8 +10,8 @@
 		40D7228E1F3A4F3D00466721 /* MapboxARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D722841F3A4F3D00466721 /* MapboxARKit.framework */; };
 		40D722931F3A4F3D00466721 /* MapboxARKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D722921F3A4F3D00466721 /* MapboxARKitTests.swift */; };
 		40D722951F3A4F3D00466721 /* MapboxARKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 40D722871F3A4F3D00466721 /* MapboxARKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		40D722A01F3A598400466721 /* MapboxARAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D7229E1F3A597F00466721 /* MapboxARAnchor.swift */; };
-		40D722A11F3A598600466721 /* MapboxARAnnotationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D7229F1F3A597F00466721 /* MapboxARAnnotationManager.swift */; };
+		40D722A01F3A598400466721 /* MBARAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D7229E1F3A597F00466721 /* MBARAnchor.swift */; };
+		40D722A11F3A598600466721 /* AnnotationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D7229F1F3A597F00466721 /* AnnotationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,8 +31,8 @@
 		40D7228D1F3A4F3D00466721 /* MapboxARKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapboxARKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40D722921F3A4F3D00466721 /* MapboxARKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxARKitTests.swift; sourceTree = "<group>"; };
 		40D722941F3A4F3D00466721 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		40D7229E1F3A597F00466721 /* MapboxARAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxARAnchor.swift; sourceTree = "<group>"; };
-		40D7229F1F3A597F00466721 /* MapboxARAnnotationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxARAnnotationManager.swift; sourceTree = "<group>"; };
+		40D7229E1F3A597F00466721 /* MBARAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBARAnchor.swift; sourceTree = "<group>"; };
+		40D7229F1F3A597F00466721 /* AnnotationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				40D722871F3A4F3D00466721 /* MapboxARKit.h */,
-				40D7229E1F3A597F00466721 /* MapboxARAnchor.swift */,
-				40D7229F1F3A597F00466721 /* MapboxARAnnotationManager.swift */,
+				40D7229F1F3A597F00466721 /* AnnotationManager.swift */,
+				40D7229E1F3A597F00466721 /* MBARAnchor.swift */,
 				40D722881F3A4F3D00466721 /* Info.plist */,
 			);
 			path = MapboxARKit;
@@ -201,8 +201,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40D722A11F3A598600466721 /* MapboxARAnnotationManager.swift in Sources */,
-				40D722A01F3A598400466721 /* MapboxARAnchor.swift in Sources */,
+				40D722A11F3A598600466721 /* AnnotationManager.swift in Sources */,
+				40D722A01F3A598400466721 /* MBARAnchor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
