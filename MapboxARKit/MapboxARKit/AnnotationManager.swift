@@ -3,14 +3,19 @@ import SpriteKit
 import CoreLocation
 import GLKit
 
-// A preview of an API for abstracting the notion of annotations and GeoJSON for use in AR
+@objc public protocol AnnotationManagerDelegate {
+    
+    @objc optional func node(for anchor: MBARAnchor) -> SCNNode?
+    @objc optional func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera)
+    
+}
 
-public class AnnotationManager {
+public class AnnotationManager: NSObject {
     
+    private(set) var session: ARSession
+    private(set) var sceneView: ARSCNView?
     private(set) var anchors = [ARAnchor]()
-    private var session: ARSession
-    private var sceneView: ARSCNView?
-    
+    public var delegate: AnnotationManagerDelegate?
     public var originLocation: CLLocation?
     
     public init(session: ARSession) {
@@ -20,6 +25,7 @@ public class AnnotationManager {
     convenience public init(sceneView: ARSCNView) {
         self.init(session: sceneView.session)
         session = sceneView.session
+        sceneView.delegate = self
     }
     
     public func addAnnotation(location: CLLocation, calloutString: String?) {
@@ -44,6 +50,36 @@ public class AnnotationManager {
             session.remove(anchor: anchor)
         }
         anchors.removeAll()
+    }
+    
+}
+
+// MARK: - ARSCNViewDelegate
+
+extension AnnotationManager: ARSCNViewDelegate {
+    
+    public func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
+        delegate?.session?(session, cameraDidChangeTrackingState: camera)
+    }
+    
+    public func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        if let anchor = anchor as? MBARAnchor {
+            // If the delegate supplied a node then use that, otherwise provide a basic default node
+            if let suppliedNode = delegate?.node?(for: anchor) {
+                node.addChildNode(suppliedNode)
+            } else {
+                let defaultNode = createDefaultNode()
+                node.addChildNode(defaultNode)
+            }
+        }            
+    }
+    
+    // MARK: - Utility methods for ARSCNViewDelegate
+    
+    func createDefaultNode() -> SCNNode {
+        let geometry = SCNSphere(radius: 0.2)
+        geometry.firstMaterial?.diffuse.contents = UIColor.red
+        return SCNNode(geometry: geometry)
     }
     
 }

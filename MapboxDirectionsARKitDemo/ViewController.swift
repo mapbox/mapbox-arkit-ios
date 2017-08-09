@@ -46,12 +46,12 @@ class ViewController: UIViewController {
         configureMapboxMapView()
         
         // SceneKit boilerplate
-        sceneView.delegate = self
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         sceneView.scene = SCNScene()
         
         // Create an AR annotation manager and give it a reference to the AR session
-        annotationManager = AnnotationManager(session: sceneView.session)
+        annotationManager = AnnotationManager(sceneView: sceneView)
+        annotationManager.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -176,7 +176,7 @@ class ViewController: UIViewController {
         let configuration = ARWorldTrackingConfiguration()
         
         if automaticallyFindTrueNorth {
-           configuration.worldAlignment = .gravityAndHeading
+            configuration.worldAlignment = .gravityAndHeading
         } else {
             configuration.worldAlignment = .gravity
         }
@@ -202,22 +202,9 @@ class ViewController: UIViewController {
     
 }
 
-// MARK: - ARSCNViewDelegate
+// MARK: - AnnotationManagerDelegate
 
-extension ViewController: ARSCNViewDelegate {
-    
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        let mapboxAnchor = anchor as! MBARAnchor
-        
-        // Add a sphere node in AR for each anchor. Depending on if there is a callout string,
-        // The node will have an image floating above it has a callout that provides additional
-        // context to the user about what the node is intended to represent
-        if mapboxAnchor.calloutString == nil {
-            addSphereNode(to: node, for: mapboxAnchor)
-        } else {
-            addSphereNode(to: node, for: anchor, with: mapboxAnchor.calloutString!)
-        }
-    }
+extension ViewController: AnnotationManagerDelegate {
     
     func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
         print("camera did change tracking state: \(camera.trackingState)")
@@ -234,15 +221,25 @@ extension ViewController: ARSCNViewDelegate {
         }
     }
     
-    // MARK: - Utility methods for ARSCNViewDelegate
-    
-    // Adds an SCNNode with a sphere geometry that loops through a color interpolation animation from green to blue
-    func addSphereNode(to node: SCNNode, for anchor: MBARAnchor) {
-        let sphereNode = createSphereNode(with: 0.2, firstColor: UIColor.green, secondColor: UIColor.blue)
-        node.addChildNode(sphereNode)
+    func node(for anchor: MBARAnchor) -> SCNNode? {
+        if anchor.calloutString == nil {
+            // Uncomment and remove `return nil` to provide a custom node
+            // otherwise MapboxARKit's AnnotationManager will provide a default view for this anchor
+            // return createSphereNode(for: anchor)
+            return nil
+        } else {
+            return createSphereNode(for: anchor, with: anchor.calloutString!)
+        }
     }
     
-    func addSphereNode(to node: SCNNode, for anchor: ARAnchor, with description: String) {
+    // MARK: - Utility methods for AnnotationManagerDelegate
+    
+    // Adds an SCNNode with a sphere geometry that loops through a color interpolation animation from green to blue
+    func createSphereNode(for anchor: MBARAnchor) -> SCNNode {
+        return createSphereNode(with: 0.2, firstColor: UIColor.green, secondColor: UIColor.blue)
+    }
+    
+    func createSphereNode(for anchor: ARAnchor, with description: String) -> SCNNode {
         let firstColor = UIColor(red: 0.0, green: 99/255.0, blue: 175/255.0, alpha: 1.0)
         let sphereNode = createSphereNode(with: 0.5, firstColor: firstColor, secondColor: UIColor.green)
         
@@ -259,7 +256,7 @@ extension ViewController: ARSCNViewDelegate {
             createBillboardGeometry(with: "straightahead", and: sphereNode)
         }
         
-        node.addChildNode(sphereNode)
+        return sphereNode
     }
     
     func createSphereNode(with radius: CGFloat, firstColor: UIColor, secondColor: UIColor) -> SCNNode {
@@ -272,6 +269,7 @@ extension ViewController: ARSCNViewDelegate {
         return sphereNode
     }
     
+    // TODO: This should create an image
     func createBillboardGeometry(with iconNamed: String, and node: SCNNode) {
         let billboardGeometry = SCNPlane(width: 1.5, height: 1.5)
         billboardGeometry.cornerRadius = 0.1
