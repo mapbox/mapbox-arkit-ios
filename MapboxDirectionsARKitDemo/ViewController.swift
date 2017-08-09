@@ -11,6 +11,13 @@ import Turf
 
 class ViewController: UIViewController {
     
+    // ***
+    // NOTE: There is currently an issue with the Xcode beta and GPU frame capture
+    // https://stackoverflow.com/questions/45368426/mapbox-crashes-when-used-with-scenekit
+    // You can fix that by following these instructions
+    // https://stackoverflow.com/questions/31264537/adding-google-maps-as-subview-crashes-ios-app-with-exc-bad/31445847#31445847
+    // ***
+    
     // Use this to control how ARKit aligns itself to the world
     // Often ARKit can determine the direction of North well enough for
     // the demo to work. However, its accuracy can be poor and it can
