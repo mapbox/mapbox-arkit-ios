@@ -83,7 +83,7 @@ class ViewController: UIViewController {
         if recognizer.state == .ended {
             
             // remove any previously rendered route
-            annotationManager.removeAllARAnchors()
+            annotationManager.removeAllAnnotations()
             resetShapeCollectionFeature(&waypointShapeCollectionFeature)
             self.updateSource(identifer: "annotationSource", shape: self.waypointShapeCollectionFeature)
             
@@ -99,6 +99,7 @@ class ViewController: UIViewController {
     // as the start and the passed in location as the end
     func queryDirections(with endLocation: CLLocation) {
         let currentLocation = CLLocation(latitude: self.mapView.centerCoordinate.latitude, longitude: self.mapView.centerCoordinate.longitude)
+        annotationManager.originLocation = currentLocation
         
         let waypoints = [
             Waypoint(coordinate: CLLocationCoordinate2D(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude), name: "start"),
@@ -130,7 +131,7 @@ class ViewController: UIViewController {
                     self.updateShapeCollectionFeature(&self.waypointShapeCollectionFeature, with: stepLocation, typeKey: "waypoint-type", typeAttribute: "big")
                     
                     // Add an AR node
-                    self.annotationManager.addARAnnotation(startLocation: currentLocation, endLocation: stepLocation, calloutString: step.description)
+                    self.annotationManager.addAnnotation(location: stepLocation, calloutString: step.description)
                 }
                 
                 let metersPerNode: CLLocationDistance = 5
@@ -148,7 +149,7 @@ class ViewController: UIViewController {
                         self.updateShapeCollectionFeature(&self.waypointShapeCollectionFeature, with: interpolatedStepLocation, typeKey: "waypoint-type", typeAttribute: "small")
                         
                         // Add an AR node
-                        self.annotationManager.addARAnnotation(startLocation: currentLocation, endLocation: interpolatedStepLocation, calloutString: nil)
+                        self.annotationManager.addAnnotation(location: interpolatedStepLocation, calloutString: nil)
                     }
                 }
                 

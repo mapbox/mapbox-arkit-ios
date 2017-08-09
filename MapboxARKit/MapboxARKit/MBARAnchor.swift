@@ -57,7 +57,6 @@ internal extension matrix_float4x4 {
 
 internal extension CLLocation {
     
-    // https://stackoverflow.com/questions/26998029/calculating-bearing-between-two-cllocation-points-in-swift
     func bearingTo(endLocation: CLLocation) -> Float {
         
         var bearing: Float = 0.0
