@@ -12,9 +12,9 @@ _Coming soon!_
 
 **Requirements:**
 * Xcode 9 Beta 5 or higher
-* iOS 11 Beta 5 or higher
-* [Carthage](https://github.com/Carthage/Carthage) )for development)
-* [CocoaPods](http://guides.cocoapods.org/using/getting-started.html#installation) (for running the sample project)
+* An iDevice with an A9 (or greater) processor running iOS 11 Beta 5 or higher
+* [Carthage](https://github.com/Carthage/Carthage) )for development and running the sample app)
+* [CocoaPods](http://guides.cocoapods.org/using/getting-started.html#installation) (for installing the library in your own app)
 
 #### Adding MapboxARKit to your iOS app
 
@@ -22,9 +22,16 @@ Although there has not yet been a beta release of this library yet, you can stil
 
 TODO!
 ```
-# pod 'MapboxARKit', :git => 'git@github.com:mapbox/turf-swift.git'
+# pod 'MapboxARKit', :git => 'git@github.com:mapbox/mapbox-arkit-ios.git'
 ```
 
 #### Running the sample project
+
+* Run `scripts/setup.sh`. This script will check that you have Carthage installed and, if so, install the development dependencies
+* Open `MapboxARKit.xcodeproj` in Xcode 9
+* NOTE: There is currently an issue with the Xcode beta and GPU frame capture: https://stackoverflow.com/questions/45368426/mapbox-crashes-when-used-with-scenekit. You can fix that by following these instructions: https://stackoverflow.com/questions/31264537/adding-google-maps-as-subview-crashes-ios-app-with-exc-bad/31445847#31445847 -- Edit the MapboxARKitDemoApp scheme and change "GPU Frame Capture" from "Automatically Enabled" or "OpenGL ES" to either "Metal" or "Disabled"
+* Select the `MapboxARKitDemoApp` scheme
+* Set your team identity for code signing
+* Install and run the app **on a device** (ARKit cannot run in the simulator)
 
 

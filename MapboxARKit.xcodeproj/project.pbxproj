@@ -7,36 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4032F70A1F3BC4CF002D0E35 /* Turf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4032F7071F3BC492002D0E35 /* Turf.framework */; };
 		4032F70C1F3BDA8B002D0E35 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032F70B1F3BDA8B002D0E35 /* Annotation.swift */; };
+		404B7C301F3CE59500D53423 /* Turf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CDD5C41F3CE3DF00937EF1 /* Turf.framework */; };
+		404B7C311F3CE5AD00D53423 /* Turf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CDD5C41F3CE3DF00937EF1 /* Turf.framework */; };
+		404B7C321F3CE5AD00D53423 /* Turf.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40CDD5C41F3CE3DF00937EF1 /* Turf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		404B7C331F3CE5AD00D53423 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CDD5C31F3CE3DC00937EF1 /* Mapbox.framework */; };
+		404B7C341F3CE5AD00D53423 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40CDD5C31F3CE3DC00937EF1 /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		404B7C351F3CE5AD00D53423 /* MapboxDirections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CDD5C21F3CE3D900937EF1 /* MapboxDirections.framework */; };
+		404B7C361F3CE5AD00D53423 /* MapboxDirections.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40CDD5C21F3CE3D900937EF1 /* MapboxDirections.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		404B7C371F3CE5AD00D53423 /* Polyline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CDD5B71F3CE3C200937EF1 /* Polyline.framework */; };
+		404B7C381F3CE5AD00D53423 /* Polyline.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40CDD5B71F3CE3C200937EF1 /* Polyline.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		404B7C3A1F3CE5B500D53423 /* MapboxARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D722841F3A4F3D00466721 /* MapboxARKit.framework */; };
+		404B7C3B1F3CE5B500D53423 /* MapboxARKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40D722841F3A4F3D00466721 /* MapboxARKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		40D7228E1F3A4F3D00466721 /* MapboxARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D722841F3A4F3D00466721 /* MapboxARKit.framework */; };
 		40D722931F3A4F3D00466721 /* MapboxARKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D722921F3A4F3D00466721 /* MapboxARKitTests.swift */; };
 		40D722951F3A4F3D00466721 /* MapboxARKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 40D722871F3A4F3D00466721 /* MapboxARKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40D722A01F3A598400466721 /* MBARAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D7229E1F3A597F00466721 /* MBARAnchor.swift */; };
 		40D722A11F3A598600466721 /* AnnotationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D7229F1F3A597F00466721 /* AnnotationManager.swift */; };
+		40DEF9A91F3CE1570089629A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DEF9A81F3CE1570089629A /* AppDelegate.swift */; };
+		40DEF9AB1F3CE1570089629A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DEF9AA1F3CE1570089629A /* ViewController.swift */; };
+		40DEF9AE1F3CE1570089629A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40DEF9AC1F3CE1570089629A /* Main.storyboard */; };
+		40DEF9B01F3CE1570089629A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40DEF9AF1F3CE1570089629A /* Assets.xcassets */; };
+		40DEF9B31F3CE1570089629A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40DEF9B11F3CE1570089629A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		401C05A71F3CD9BD00F10CDA /* PBXContainerItemProxy */ = {
+		404B7C3C1F3CE5B500D53423 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4032F6FB1F3BC492002D0E35 /* Turf.xcodeproj */;
+			containerPortal = 40D7227B1F3A4F3D00466721 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 35650AEF1F150DC500B5C158;
-			remoteInfo = Turf;
-		};
-		4032F7061F3BC492002D0E35 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4032F6FB1F3BC492002D0E35 /* Turf.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 35650AF01F150DC500B5C158;
-			remoteInfo = Turf;
-		};
-		4032F7081F3BC492002D0E35 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4032F6FB1F3BC492002D0E35 /* Turf.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 35650AF91F150DC500B5C158;
-			remoteInfo = TurfTests;
+			remoteGlobalIDString = 40D722831F3A4F3D00466721;
+			remoteInfo = MapboxARKit;
 		};
 		40D7228F1F3A4F3D00466721 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -47,27 +48,30 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		404B7C391F3CE5AD00D53423 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				404B7C3B1F3CE5B500D53423 /* MapboxARKit.framework in Embed Frameworks */,
+				404B7C361F3CE5AD00D53423 /* MapboxDirections.framework in Embed Frameworks */,
+				404B7C321F3CE5AD00D53423 /* Turf.framework in Embed Frameworks */,
+				404B7C381F3CE5AD00D53423 /* Polyline.framework in Embed Frameworks */,
+				404B7C341F3CE5AD00D53423 /* Mapbox.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		4032F6E61F3BC3D5002D0E35 /* Turf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Turf.framework; path = ../Carthage/Build/iOS/Turf.framework; sourceTree = "<group>"; };
-		4032F6EA1F3BC492002D0E35 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		4032F6ED1F3BC492002D0E35 /* .Turf-swift.version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".Turf-swift.version"; sourceTree = "<group>"; };
-		4032F6EF1F3BC492002D0E35 /* 471C72CA-D553-38D7-AFCD-5C9B6ABD61CE.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "471C72CA-D553-38D7-AFCD-5C9B6ABD61CE.bcsymbolmap"; sourceTree = "<group>"; };
-		4032F6F01F3BC492002D0E35 /* 4CF76595-4F10-35AD-86DF-ABD4771E048F.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "4CF76595-4F10-35AD-86DF-ABD4771E048F.bcsymbolmap"; sourceTree = "<group>"; };
-		4032F6F11F3BC492002D0E35 /* Turf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Turf.framework; sourceTree = "<group>"; };
-		4032F6F21F3BC492002D0E35 /* Turf.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Turf.framework.dSYM; sourceTree = "<group>"; };
-		4032F6F31F3BC492002D0E35 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
-		4032F6F41F3BC492002D0E35 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		4032F6F61F3BC492002D0E35 /* CoreLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocation.swift; sourceTree = "<group>"; };
-		4032F6F71F3BC492002D0E35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4032F6F81F3BC492002D0E35 /* Turf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Turf.h; sourceTree = "<group>"; };
-		4032F6F91F3BC492002D0E35 /* Turf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Turf.swift; sourceTree = "<group>"; };
-		4032F6FA1F3BC492002D0E35 /* turf-swift.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = "turf-swift.podspec"; sourceTree = "<group>"; };
-		4032F6FB1F3BC492002D0E35 /* Turf.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Turf.xcodeproj; sourceTree = "<group>"; };
-		4032F6FF1F3BC492002D0E35 /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
-		4032F7011F3BC492002D0E35 /* dc-line.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = "dc-line.geojson"; sourceTree = "<group>"; };
-		4032F7021F3BC492002D0E35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4032F7031F3BC492002D0E35 /* TurfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurfTests.swift; sourceTree = "<group>"; };
 		4032F70B1F3BDA8B002D0E35 /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
+		40CDD5B71F3CE3C200937EF1 /* Polyline.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Polyline.framework; path = Carthage/Build/iOS/Polyline.framework; sourceTree = "<group>"; };
+		40CDD5C21F3CE3D900937EF1 /* MapboxDirections.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapboxDirections.framework; path = Carthage/Build/iOS/MapboxDirections.framework; sourceTree = "<group>"; };
+		40CDD5C31F3CE3DC00937EF1 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = Carthage/Build/iOS/Mapbox.framework; sourceTree = "<group>"; };
+		40CDD5C41F3CE3DF00937EF1 /* Turf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Turf.framework; path = Carthage/Build/iOS/Turf.framework; sourceTree = "<group>"; };
 		40D722841F3A4F3D00466721 /* MapboxARKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxARKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40D722871F3A4F3D00466721 /* MapboxARKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapboxARKit.h; sourceTree = "<group>"; };
 		40D722881F3A4F3D00466721 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +80,13 @@
 		40D722941F3A4F3D00466721 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40D7229E1F3A597F00466721 /* MBARAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBARAnchor.swift; sourceTree = "<group>"; };
 		40D7229F1F3A597F00466721 /* AnnotationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationManager.swift; sourceTree = "<group>"; };
+		40DEF9A61F3CE1570089629A /* MapboxARKitDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapboxARKitDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		40DEF9A81F3CE1570089629A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		40DEF9AA1F3CE1570089629A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		40DEF9AD1F3CE1570089629A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		40DEF9AF1F3CE1570089629A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		40DEF9B21F3CE1570089629A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		40DEF9B41F3CE1570089629A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4032F70A1F3BC4CF002D0E35 /* Turf.framework in Frameworks */,
+				404B7C301F3CE59500D53423 /* Turf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,114 +106,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		40DEF9A31F3CE1570089629A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				404B7C3A1F3CE5B500D53423 /* MapboxARKit.framework in Frameworks */,
+				404B7C351F3CE5AD00D53423 /* MapboxDirections.framework in Frameworks */,
+				404B7C311F3CE5AD00D53423 /* Turf.framework in Frameworks */,
+				404B7C371F3CE5AD00D53423 /* Polyline.framework in Frameworks */,
+				404B7C331F3CE5AD00D53423 /* Mapbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		4032F6E51F3BC3D4002D0E35 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4032F6E61F3BC3D5002D0E35 /* Turf.framework */,
+				40CDD5C41F3CE3DF00937EF1 /* Turf.framework */,
+				40CDD5C31F3CE3DC00937EF1 /* Mapbox.framework */,
+				40CDD5C21F3CE3D900937EF1 /* MapboxDirections.framework */,
+				40CDD5B71F3CE3C200937EF1 /* Polyline.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4032F6E81F3BC478002D0E35 /* Dependencies */ = {
-			isa = PBXGroup;
-			children = (
-				4032F6E91F3BC492002D0E35 /* Turf-swift */,
-			);
-			path = Dependencies;
-			sourceTree = "<group>";
-		};
-		4032F6E91F3BC492002D0E35 /* Turf-swift */ = {
-			isa = PBXGroup;
-			children = (
-				4032F6EA1F3BC492002D0E35 /* .gitignore */,
-				4032F6EB1F3BC492002D0E35 /* Carthage */,
-				4032F6F31F3BC492002D0E35 /* LICENSE.md */,
-				4032F6F41F3BC492002D0E35 /* README.md */,
-				4032F6F51F3BC492002D0E35 /* Turf */,
-				4032F6FA1F3BC492002D0E35 /* turf-swift.podspec */,
-				4032F6FB1F3BC492002D0E35 /* Turf.xcodeproj */,
-				4032F6FE1F3BC492002D0E35 /* TurfTests */,
-			);
-			name = "Turf-swift";
-			path = "../../Carthage/Checkouts/Turf-swift";
-			sourceTree = "<group>";
-		};
-		4032F6EB1F3BC492002D0E35 /* Carthage */ = {
-			isa = PBXGroup;
-			children = (
-				4032F6EC1F3BC492002D0E35 /* Build */,
-			);
-			path = Carthage;
-			sourceTree = "<group>";
-		};
-		4032F6EC1F3BC492002D0E35 /* Build */ = {
-			isa = PBXGroup;
-			children = (
-				4032F6ED1F3BC492002D0E35 /* .Turf-swift.version */,
-				4032F6EE1F3BC492002D0E35 /* iOS */,
-			);
-			path = Build;
-			sourceTree = "<group>";
-		};
-		4032F6EE1F3BC492002D0E35 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				4032F6EF1F3BC492002D0E35 /* 471C72CA-D553-38D7-AFCD-5C9B6ABD61CE.bcsymbolmap */,
-				4032F6F01F3BC492002D0E35 /* 4CF76595-4F10-35AD-86DF-ABD4771E048F.bcsymbolmap */,
-				4032F6F11F3BC492002D0E35 /* Turf.framework */,
-				4032F6F21F3BC492002D0E35 /* Turf.framework.dSYM */,
-			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
-		4032F6F51F3BC492002D0E35 /* Turf */ = {
-			isa = PBXGroup;
-			children = (
-				4032F6F61F3BC492002D0E35 /* CoreLocation.swift */,
-				4032F6F71F3BC492002D0E35 /* Info.plist */,
-				4032F6F81F3BC492002D0E35 /* Turf.h */,
-				4032F6F91F3BC492002D0E35 /* Turf.swift */,
-			);
-			path = Turf;
-			sourceTree = "<group>";
-		};
-		4032F6FC1F3BC492002D0E35 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4032F7071F3BC492002D0E35 /* Turf.framework */,
-				4032F7091F3BC492002D0E35 /* TurfTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		4032F6FE1F3BC492002D0E35 /* TurfTests */ = {
-			isa = PBXGroup;
-			children = (
-				4032F6FF1F3BC492002D0E35 /* Fixture.swift */,
-				4032F7001F3BC492002D0E35 /* Fixtures */,
-				4032F7021F3BC492002D0E35 /* Info.plist */,
-				4032F7031F3BC492002D0E35 /* TurfTests.swift */,
-			);
-			path = TurfTests;
-			sourceTree = "<group>";
-		};
-		4032F7001F3BC492002D0E35 /* Fixtures */ = {
-			isa = PBXGroup;
-			children = (
-				4032F7011F3BC492002D0E35 /* dc-line.geojson */,
-			);
-			path = Fixtures;
 			sourceTree = "<group>";
 		};
 		40D7227A1F3A4F3D00466721 = {
 			isa = PBXGroup;
 			children = (
-				4032F6E81F3BC478002D0E35 /* Dependencies */,
 				40D722861F3A4F3D00466721 /* MapboxARKit */,
 				40D722911F3A4F3D00466721 /* MapboxARKitTests */,
+				40DEF9A71F3CE1570089629A /* MapboxARKitDemoApp */,
 				40D722851F3A4F3D00466721 /* Products */,
 				4032F6E51F3BC3D4002D0E35 /* Frameworks */,
 			);
@@ -213,6 +148,7 @@
 			children = (
 				40D722841F3A4F3D00466721 /* MapboxARKit.framework */,
 				40D7228D1F3A4F3D00466721 /* MapboxARKitTests.xctest */,
+				40DEF9A61F3CE1570089629A /* MapboxARKitDemoApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -236,6 +172,19 @@
 				40D722941F3A4F3D00466721 /* Info.plist */,
 			);
 			path = MapboxARKitTests;
+			sourceTree = "<group>";
+		};
+		40DEF9A71F3CE1570089629A /* MapboxARKitDemoApp */ = {
+			isa = PBXGroup;
+			children = (
+				40DEF9A81F3CE1570089629A /* AppDelegate.swift */,
+				40DEF9AA1F3CE1570089629A /* ViewController.swift */,
+				40DEF9AC1F3CE1570089629A /* Main.storyboard */,
+				40DEF9AF1F3CE1570089629A /* Assets.xcassets */,
+				40DEF9B11F3CE1570089629A /* LaunchScreen.storyboard */,
+				40DEF9B41F3CE1570089629A /* Info.plist */,
+			);
+			path = MapboxARKitDemoApp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,7 +213,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				401C05A81F3CD9BD00F10CDA /* PBXTargetDependency */,
 			);
 			name = MapboxARKit;
 			productName = MapboxARKit;
@@ -289,6 +237,26 @@
 			productReference = 40D7228D1F3A4F3D00466721 /* MapboxARKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		40DEF9A51F3CE1570089629A /* MapboxARKitDemoApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40DEF9B51F3CE1570089629A /* Build configuration list for PBXNativeTarget "MapboxARKitDemoApp" */;
+			buildPhases = (
+				40DEF9A21F3CE1570089629A /* Sources */,
+				40DEF9A31F3CE1570089629A /* Frameworks */,
+				40DEF9A41F3CE1570089629A /* Resources */,
+				404B7C391F3CE5AD00D53423 /* Embed Frameworks */,
+				404B7C3E1F3CE66D00D53423 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				404B7C3D1F3CE5B500D53423 /* PBXTargetDependency */,
+			);
+			name = MapboxARKitDemoApp;
+			productName = MapboxARKitDemoApp;
+			productReference = 40DEF9A61F3CE1570089629A /* MapboxARKitDemoApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -308,6 +276,9 @@
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Manual;
 					};
+					40DEF9A51F3CE1570089629A = {
+						CreatedOnToolsVersion = 9.0;
+					};
 				};
 			};
 			buildConfigurationList = 40D7227E1F3A4F3D00466721 /* Build configuration list for PBXProject "MapboxARKit" */;
@@ -316,40 +287,19 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 40D7227A1F3A4F3D00466721;
 			productRefGroup = 40D722851F3A4F3D00466721 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 4032F6FC1F3BC492002D0E35 /* Products */;
-					ProjectRef = 4032F6FB1F3BC492002D0E35 /* Turf.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				40D722831F3A4F3D00466721 /* MapboxARKit */,
 				40D7228C1F3A4F3D00466721 /* MapboxARKitTests */,
+				40DEF9A51F3CE1570089629A /* MapboxARKitDemoApp */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		4032F7071F3BC492002D0E35 /* Turf.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Turf.framework;
-			remoteRef = 4032F7061F3BC492002D0E35 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		4032F7091F3BC492002D0E35 /* TurfTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = TurfTests.xctest;
-			remoteRef = 4032F7081F3BC492002D0E35 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		40D722821F3A4F3D00466721 /* Resources */ = {
@@ -366,7 +316,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		40DEF9A41F3CE1570089629A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40DEF9B31F3CE1570089629A /* LaunchScreen.storyboard in Resources */,
+				40DEF9B01F3CE1570089629A /* Assets.xcassets in Resources */,
+				40DEF9AE1F3CE1570089629A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		404B7C3E1F3CE66D00D53423 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "token_file=mapbox_access_token\ntoken=\"$(cat $token_file)\"\nif [ \"$token\" ]; then\nplutil -replace MGLMapboxAccessToken -string $token \"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\nelse\necho 'error: Missing Mapbox access token'\nopen 'https://www.mapbox.com/studio/account/tokens/'\necho \"error: Get an access token from <https://www.mapbox.com/studio/account/tokens/>, then create a new file at $token_file that contains the access token.\"\nexit 1\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		40D7227F1F3A4F3D00466721 /* Sources */ = {
@@ -387,13 +363,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		40DEF9A21F3CE1570089629A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40DEF9AB1F3CE1570089629A /* ViewController.swift in Sources */,
+				40DEF9A91F3CE1570089629A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		401C05A81F3CD9BD00F10CDA /* PBXTargetDependency */ = {
+		404B7C3D1F3CE5B500D53423 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = Turf;
-			targetProxy = 401C05A71F3CD9BD00F10CDA /* PBXContainerItemProxy */;
+			target = 40D722831F3A4F3D00466721 /* MapboxARKit */;
+			targetProxy = 404B7C3C1F3CE5B500D53423 /* PBXContainerItemProxy */;
 		};
 		40D722901F3A4F3D00466721 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -401,6 +386,25 @@
 			targetProxy = 40D7228F1F3A4F3D00466721 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		40DEF9AC1F3CE1570089629A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				40DEF9AD1F3CE1570089629A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		40DEF9B11F3CE1570089629A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				40DEF9B21F3CE1570089629A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		40D722961F3A4F3D00466721 /* Debug */ = {
@@ -520,10 +524,13 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MapboxARKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -545,10 +552,13 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MapboxARKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -593,6 +603,48 @@
 			};
 			name = Release;
 		};
+		40DEF9B61F3CE1570089629A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = MapboxARKitDemoApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mapbox.com.MapboxARKitDemoApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		40DEF9B71F3CE1570089629A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = MapboxARKitDemoApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mapbox.com.MapboxARKitDemoApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -619,6 +671,15 @@
 			buildConfigurations = (
 				40D7229C1F3A4F3D00466721 /* Debug */,
 				40D7229D1F3A4F3D00466721 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40DEF9B51F3CE1570089629A /* Build configuration list for PBXNativeTarget "MapboxARKitDemoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40DEF9B61F3CE1570089629A /* Debug */,
+				40DEF9B71F3CE1570089629A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

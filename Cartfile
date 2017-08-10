@@ -1,1 +1,3 @@
 github "mapbox/Turf-swift" "master"
+github "mapbox/MapboxDirections.swift" "swift-4"
+binary "https://www.mapbox.com/ios-sdk/Mapbox-iOS-SDK.json" ~> 3.6
