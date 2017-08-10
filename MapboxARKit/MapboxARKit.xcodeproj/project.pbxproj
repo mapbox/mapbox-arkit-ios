@@ -17,6 +17,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		401C05A71F3CD9BD00F10CDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4032F6FB1F3BC492002D0E35 /* Turf.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 35650AEF1F150DC500B5C158;
+			remoteInfo = Turf;
+		};
 		4032F7061F3BC492002D0E35 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4032F6FB1F3BC492002D0E35 /* Turf.xcodeproj */;
@@ -257,6 +264,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				401C05A81F3CD9BD00F10CDA /* PBXTargetDependency */,
 			);
 			name = MapboxARKit;
 			productName = MapboxARKit;
@@ -382,6 +390,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		401C05A81F3CD9BD00F10CDA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Turf;
+			targetProxy = 401C05A71F3CD9BD00F10CDA /* PBXContainerItemProxy */;
+		};
 		40D722901F3A4F3D00466721 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 40D722831F3A4F3D00466721 /* MapboxARKit */;
