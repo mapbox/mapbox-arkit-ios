@@ -45,8 +45,8 @@ class ViewController: UIViewController {
         styleControlViewContainer()
         configureMapboxMapView()
         
-        // SceneKit boilerplate
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+        // SceneKit
+        //sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         sceneView.scene = SCNScene()
         
         // Create an AR annotation manager and give it a reference to the AR session
@@ -97,6 +97,14 @@ class ViewController: UIViewController {
             // Create a CLLocation instance to represent the end location for the directions query
             let annotationLocation = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
             queryDirections(with: annotationLocation)
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }        
+        let result = sceneView.hitTest(touch.location(in: sceneView), options: [SCNHitTestOption.firstFoundOnly : true]).first
+        if let node = result?.node, let annotation = annotationManager.annotationsByNode[node] {
+            annotationManager.removeAnnotation(annotation: annotation)
         }
     }
     

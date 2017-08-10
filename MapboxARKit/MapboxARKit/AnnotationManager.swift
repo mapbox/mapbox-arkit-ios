@@ -11,13 +11,11 @@ import CoreLocation
 
 public class AnnotationManager: NSObject {
     
-    private(set) var session: ARSession
-    private(set) var sceneView: ARSCNView?
-    
-    private(set) var anchors = [ARAnchor]()
-    private(set) var annotationsByAnchor = [ARAnchor: Annotation]()
-    
-    
+    public private(set) var session: ARSession
+    public private(set) var sceneView: ARSCNView?
+    public private(set) var anchors = [ARAnchor]()
+    public private(set) var annotationsByAnchor = [ARAnchor: Annotation]()
+    public private(set) var annotationsByNode = [SCNNode: Annotation]()
     public var delegate: AnnotationManagerDelegate?
     public var originLocation: CLLocation?
     
@@ -44,6 +42,7 @@ public class AnnotationManager: NSObject {
         session.add(anchor: anchor)
         
         anchors.append(anchor)
+        annotation.anchor = anchor
         annotationsByAnchor[anchor] = annotation
     }
     
@@ -60,6 +59,20 @@ public class AnnotationManager: NSObject {
         
         anchors.removeAll()
         annotationsByAnchor.removeAll()
+    }
+    
+    public func removeAnnotations(annotations: [Annotation]) {
+        for annotation in annotations {
+            removeAnnotation(annotation: annotation)
+        }
+    }
+    
+    public func removeAnnotation(annotation: Annotation) {
+        if let anchor = annotation.anchor {
+            session.remove(anchor: anchor)
+            anchors.remove(at: anchors.index(of: anchor)!)
+            annotationsByAnchor.removeValue(forKey: anchor)
+        }
     }
     
 }
@@ -93,6 +106,8 @@ extension AnnotationManager: ARSCNViewDelegate {
             }
             
             node.addChildNode(newNode)
+            
+            annotationsByNode[newNode] = annotation
         }
         
         // TODO: let delegate provide a node for a non-MBARAnchor
