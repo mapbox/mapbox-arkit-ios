@@ -25,13 +25,13 @@ TODO!
 # pod 'MapboxARKit', :git => 'git@github.com:mapbox/mapbox-arkit-ios.git'
 ```
 
+NOTE: There is currently an issue with the Xcode beta and GPU frame capture: https://stackoverflow.com/questions/45368426/mapbox-crashes-when-used-with-scenekit. You can fix that by following these instructions: https://stackoverflow.com/questions/31264537/adding-google-maps-as-subview-crashes-ios-app-with-exc-bad/31445847#31445847 -- If you see this error in your project, edit your scheme and change "GPU Frame Capture" from "Automatically Enabled" or "OpenGL ES" to either "Metal" or "Disabled"
+
 #### Running the sample project
 
 * Run `scripts/setup.sh`. This script will check that you have Carthage installed and, if so, install the development dependencies
 * Open `MapboxARKit.xcodeproj` in Xcode 9
-* NOTE: There is currently an issue with the Xcode beta and GPU frame capture: https://stackoverflow.com/questions/45368426/mapbox-crashes-when-used-with-scenekit. You can fix that by following these instructions: https://stackoverflow.com/questions/31264537/adding-google-maps-as-subview-crashes-ios-app-with-exc-bad/31445847#31445847 -- Edit the MapboxARKitDemoApp scheme and change "GPU Frame Capture" from "Automatically Enabled" or "OpenGL ES" to either "Metal" or "Disabled"
-* Select the `MapboxARKitDemoApp` scheme
+* Select the `MapboxARKitDemoApp` scheme and target
 * Set your team identity for code signing
+* Create a file called `mapbox_access_token` in the root of the MapboxARKit project directory and write your [Mapbox Access Token](https://www.mapbox.com/studio/account/tokens/) in that file
 * Install and run the app **on a device** (ARKit cannot run in the simulator)
-
-
