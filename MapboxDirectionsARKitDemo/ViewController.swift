@@ -117,6 +117,8 @@ class ViewController: UIViewController {
         let options = RouteOptions(waypoints: waypoints, profileIdentifier: .walking)
         options.includesSteps = true
         
+        var annotationsToAdd = [Annotation]()
+        
         // Initiate the query
         let _ = directions.calculate(options) { (waypoints, routes, error) in
             guard error == nil else {
@@ -139,7 +141,7 @@ class ViewController: UIViewController {
                     
                     // Add an AR node
                     let annotation = Annotation(location: stepLocation, calloutImage: self.calloutImage(for: step.description))
-                    self.annotationManager.addAnnotation(annotation: annotation)
+                    annotationsToAdd.append(annotation)
                 }
                 
                 let metersPerNode: CLLocationDistance = 5
@@ -158,12 +160,15 @@ class ViewController: UIViewController {
                         
                         // Add an AR node
                         let annotation = Annotation(location: interpolatedStepLocation, calloutImage: nil)
-                        self.annotationManager.addAnnotation(annotation: annotation)
+                        annotationsToAdd.append(annotation)
                     }
                 }
                 
                 // Update the source used for route line visualization with the latest waypoint shape collection
                 self.updateSource(identifer: "annotationSource", shape: self.waypointShapeCollectionFeature)
+                
+                // Update the annotation manager with the latest AR annotations
+                self.annotationManager.addAnnotations(annotations: annotationsToAdd)
             }
         }
         

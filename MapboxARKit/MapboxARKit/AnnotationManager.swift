@@ -47,6 +47,12 @@ public class AnnotationManager: NSObject {
         annotationsByAnchor[anchor] = annotation
     }
     
+    public func addAnnotations(annotations: [Annotation]) {
+        for annotation in annotations {
+            addAnnotation(annotation: annotation)
+        }
+    }
+    
     public func removeAllAnnotations() {
         for anchor in anchors {
             session.remove(anchor: anchor)
