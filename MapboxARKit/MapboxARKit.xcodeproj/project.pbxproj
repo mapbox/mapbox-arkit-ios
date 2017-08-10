@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4032F70A1F3BC4CF002D0E35 /* Turf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4032F7071F3BC492002D0E35 /* Turf.framework */; };
+		4032F70C1F3BDA8B002D0E35 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032F70B1F3BDA8B002D0E35 /* Annotation.swift */; };
 		40D7228E1F3A4F3D00466721 /* MapboxARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D722841F3A4F3D00466721 /* MapboxARKit.framework */; };
 		40D722931F3A4F3D00466721 /* MapboxARKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D722921F3A4F3D00466721 /* MapboxARKitTests.swift */; };
 		40D722951F3A4F3D00466721 /* MapboxARKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 40D722871F3A4F3D00466721 /* MapboxARKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -59,6 +60,7 @@
 		4032F7011F3BC492002D0E35 /* dc-line.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = "dc-line.geojson"; sourceTree = "<group>"; };
 		4032F7021F3BC492002D0E35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4032F7031F3BC492002D0E35 /* TurfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurfTests.swift; sourceTree = "<group>"; };
+		4032F70B1F3BDA8B002D0E35 /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		40D722841F3A4F3D00466721 /* MapboxARKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxARKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40D722871F3A4F3D00466721 /* MapboxARKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapboxARKit.h; sourceTree = "<group>"; };
 		40D722881F3A4F3D00466721 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				40D722871F3A4F3D00466721 /* MapboxARKit.h */,
+				4032F70B1F3BDA8B002D0E35 /* Annotation.swift */,
 				40D7229F1F3A597F00466721 /* AnnotationManager.swift */,
 				40D7229E1F3A597F00466721 /* MBARAnchor.swift */,
 				40D722881F3A4F3D00466721 /* Info.plist */,
@@ -363,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40D722A11F3A598600466721 /* AnnotationManager.swift in Sources */,
+				4032F70C1F3BDA8B002D0E35 /* Annotation.swift in Sources */,
 				40D722A01F3A598400466721 /* MBARAnchor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

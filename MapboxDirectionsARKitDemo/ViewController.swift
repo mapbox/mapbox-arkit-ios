@@ -11,12 +11,12 @@ import Turf
 
 class ViewController: UIViewController {
     
-    // ***
-    // NOTE: There is currently an issue with the Xcode beta and GPU frame capture
-    // https://stackoverflow.com/questions/45368426/mapbox-crashes-when-used-with-scenekit
-    // You can fix that by following these instructions
-    // https://stackoverflow.com/questions/31264537/adding-google-maps-as-subview-crashes-ios-app-with-exc-bad/31445847#31445847
-    // ***
+    // ****
+    // * NOTE: There is currently an issue with the Xcode beta and GPU frame capture
+    // * https://stackoverflow.com/questions/45368426/mapbox-crashes-when-used-with-scenekit
+    // * You can fix that by following these instructions
+    // * https://stackoverflow.com/questions/31264537/adding-google-maps-as-subview-crashes-ios-app-with-exc-bad/31445847#31445847
+    // ****
     
     // Use this to control how ARKit aligns itself to the world
     // Often ARKit can determine the direction of North well enough for
@@ -138,7 +138,8 @@ class ViewController: UIViewController {
                     self.updateShapeCollectionFeature(&self.waypointShapeCollectionFeature, with: stepLocation, typeKey: "waypoint-type", typeAttribute: "big")
                     
                     // Add an AR node
-                    self.annotationManager.addAnnotation(location: stepLocation, calloutString: step.description)
+                    let annotation = Annotation(location: stepLocation, calloutImage: self.calloutImage(for: step.description))
+                    self.annotationManager.addAnnotation(annotation: annotation)
                 }
                 
                 let metersPerNode: CLLocationDistance = 5
@@ -156,7 +157,8 @@ class ViewController: UIViewController {
                         self.updateShapeCollectionFeature(&self.waypointShapeCollectionFeature, with: interpolatedStepLocation, typeKey: "waypoint-type", typeAttribute: "small")
                         
                         // Add an AR node
-                        self.annotationManager.addAnnotation(location: interpolatedStepLocation, calloutString: nil)
+                        let annotation = Annotation(location: interpolatedStepLocation, calloutImage: nil)
+                        self.annotationManager.addAnnotation(annotation: annotation)
                     }
                 }
                 
@@ -200,6 +202,24 @@ class ViewController: UIViewController {
         mapView.layer.cornerRadius = 10
     }
     
+    private func calloutImage(for stepDescription: String) -> UIImage? {
+        
+        let lowerCasedDescription = stepDescription.lowercased()
+        var image: UIImage?
+        
+        if lowerCasedDescription.contains("arrived") {
+            image = UIImage(named: "arrived")
+        } else if lowerCasedDescription.contains("left") {
+            image = UIImage(named: "turnleft")
+        } else if lowerCasedDescription.contains("right") {
+            image = UIImage(named: "turnright")
+        } else if lowerCasedDescription.contains("head") {
+            image = UIImage(named: "straightahead")
+        }
+        
+        return image
+    }
+    
 }
 
 // MARK: - AnnotationManagerDelegate
@@ -221,43 +241,20 @@ extension ViewController: AnnotationManagerDelegate {
         }
     }
     
-    func node(for anchor: MBARAnchor) -> SCNNode? {
-        if anchor.calloutString == nil {
+    func node(for annotation: Annotation) -> SCNNode? {
+        
+        if annotation.calloutImage == nil {
             // Uncomment and remove `return nil` to provide a custom node
             // otherwise MapboxARKit's AnnotationManager will provide a default view for this anchor
-            // return createSphereNode(for: anchor)
+            // return return createSphereNode(with: 0.2, firstColor: UIColor.green, secondColor: UIColor.blue)
             return nil
         } else {
-            return createSphereNode(for: anchor, with: anchor.calloutString!)
+            let firstColor = UIColor(red: 0.0, green: 99/255.0, blue: 175/255.0, alpha: 1.0)
+            return createSphereNode(with: 0.5, firstColor: firstColor, secondColor: UIColor.green)
         }
     }
     
     // MARK: - Utility methods for AnnotationManagerDelegate
-    
-    // Adds an SCNNode with a sphere geometry that loops through a color interpolation animation from green to blue
-    func createSphereNode(for anchor: MBARAnchor) -> SCNNode {
-        return createSphereNode(with: 0.2, firstColor: UIColor.green, secondColor: UIColor.blue)
-    }
-    
-    func createSphereNode(for anchor: ARAnchor, with description: String) -> SCNNode {
-        let firstColor = UIColor(red: 0.0, green: 99/255.0, blue: 175/255.0, alpha: 1.0)
-        let sphereNode = createSphereNode(with: 0.5, firstColor: firstColor, secondColor: UIColor.green)
-        
-        // Based on key strings in the directions' descriptions, add a billboard node to the sphere node
-        // that contains an image for that step in the directions that will provide context to the user
-        let lowerCasedDescription = description.lowercased()
-        if lowerCasedDescription.contains("arrived") {
-            createBillboardGeometry(with: "arrived", and: sphereNode)
-        } else if lowerCasedDescription.contains("left") {
-            createBillboardGeometry(with: "turnleft", and: sphereNode)
-        } else if lowerCasedDescription.contains("right") {
-            createBillboardGeometry(with: "turnright", and: sphereNode)
-        } else if lowerCasedDescription.contains("head") {
-            createBillboardGeometry(with: "straightahead", and: sphereNode)
-        }
-        
-        return sphereNode
-    }
     
     func createSphereNode(with radius: CGFloat, firstColor: UIColor, secondColor: UIColor) -> SCNNode {
         let geometry = SCNSphere(radius: radius)
@@ -267,23 +264,6 @@ extension ViewController: AnnotationManagerDelegate {
         sphereNode.animateInterpolatedColor(from: firstColor, to: secondColor, duration: 1)
         
         return sphereNode
-    }
-    
-    // TODO: This should create an image
-    func createBillboardGeometry(with iconNamed: String, and node: SCNNode) {
-        let billboardGeometry = SCNPlane(width: 1.5, height: 1.5)
-        billboardGeometry.cornerRadius = 0.1
-        billboardGeometry.firstMaterial?.diffuse.contents = UIImage(named: iconNamed)
-        
-        let billBoardNode = SCNNode(geometry: billboardGeometry)
-        var billboardPosition = node.position
-        billboardPosition.y = 2.0
-        billBoardNode.position = billboardPosition
-        
-        let constraint = SCNBillboardConstraint()
-        billBoardNode.constraints = [constraint]
-        
-        node.addChildNode(billBoardNode)
     }
     
 }
