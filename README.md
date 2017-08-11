@@ -20,9 +20,12 @@ _Coming soon!_
 
 Although there has not yet been a beta release of this library yet, you can still experiment with it in your application by using CocoaPods to install it. Edit your Podfile to include:
 
-TODO!
 ```
-# pod 'MapboxARKit', :git => 'git@github.com:mapbox/mapbox-arkit-ios.git'
+# The MapboxARKit pod
+pod 'MapboxARKit', :git => 'git@github.com:mapbox/mapbox-arkit-ios.git'
+
+# The Turf-swift dependency must be installed manually in the client app until it is published
+pod 'Turf-swift', :git => 'git@github.com:mapbox/turf-swift.git'
 ```
 
 NOTE: There is currently an issue with the Xcode beta and GPU frame capture: https://stackoverflow.com/questions/45368426/mapbox-crashes-when-used-with-scenekit. You can fix that by following these instructions: https://stackoverflow.com/questions/31264537/adding-google-maps-as-subview-crashes-ios-app-with-exc-bad/31445847#31445847 -- If you see this error in your project, edit your scheme and change "GPU Frame Capture" from "Automatically Enabled" or "OpenGL ES" to either "Metal" or "Disabled"

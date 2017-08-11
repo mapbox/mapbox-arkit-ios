@@ -39,10 +39,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.module_name = "MapboxARKit"
 
-  # Dependencies must be installed manually in the client app until iOS 11 stabalizes and iOS 11 
-  # PRs land!
-  #s.dependency "MapboxDirections.swift"
-  #s.dependency "Turf-swift"
-  #s.dependency "Mapbox-iOS-SDK"
-
+  # The Turf-swift dependency must be installed manually in the client app until it is published
+  # Use `pod 'Turf-swift', :git => 'git@github.com:mapbox/turf-swift.git'` in the app's Podfile
+  s.dependency "Turf-swift"
 end

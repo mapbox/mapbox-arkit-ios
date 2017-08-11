@@ -46,10 +46,10 @@ class ViewController: UIViewController {
         configureMapboxMapView()
         
         // SceneKit
-        //sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         sceneView.scene = SCNScene()
         
-        // Create an AR annotation manager and give it a reference to the AR session
+        // Create an AR annotation manager and give it a reference to the AR scene view
         annotationManager = AnnotationManager(sceneView: sceneView)
         annotationManager.delegate = self
     }
