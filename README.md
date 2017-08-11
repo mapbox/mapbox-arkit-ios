@@ -6,7 +6,96 @@ _**Warning:** The MapboxARKit API is **experimental** and will change. It is pub
 
 ### Usage
 
-_Coming soon!_
+##### Import MapboxARK
+
+```Swift
+import MapboxARKit
+```
+
+##### Declare an an annotation manager instance in your view controller
+
+```Swift
+...
+@IBOutlet weak var sceneView: ARSCNView!
+var annotationManager: AnnotationManager!
+...
+```
+
+##### Create the annotation manager instance with ARSCNView instance and become the delegate
+
+The easist way to use MapboxARKit is to pass the ARSCNView and interact with the scene via the AnnotationManagerDelegate protocol. However, you can also initialize and `AnnotationManager` instance with only the ARKit session and handle all ARSCNView delegation yourself.
+
+```Swift        
+override func viewDidLoad() {
+    super.viewDidLoad()
+                
+    // Create the annotation manager instance and give it an ARSCNView
+    annotationManager = AnnotationManager(sceneView: sceneView)
+        
+    // Become the delegate of the annotation manager
+    annotationManager.delegate = self
+        
+    }
+```
+
+##### Monitor ARKit camera state readiness
+
+AnnotationManager monitors the ARSession and acts as a proxy for related notifications. This is useful for knowing when it makes sense to interact with the ARSession and ARSCNView and do thing like adding an `Annotation` instance
+
+```Swift
+extension ViewController: AnnotationManagerDelegate {
+
+    func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
+        switch camera.trackingState {
+        case .normal:
+            // Tracking is sufficient to begin experience 
+            allowARInteractions()
+        default:
+            break
+        }
+    }
+```
+
+##### Annotation management of annotations that represent a real world location with a SceneKit node
+
+In view controller logic that is exercised after an ARSession is ready (see above), you can tell your AnnotationManager where it is in the world and ask it to place annotations (that are actually ARAnchros) representing other geographic locations in the world.
+
+```Swift
+...
+
+// Set the origin location of the annotation manager. The originLocation is a CLLocation that is as close as possible to the actual location (latitude, longitude) of the ARKit session origin point in the real world
+
+self.annotationManager.originLocation = originLocation
+
+// Create and add an annotation, MapboxARKit will supply a default red sphere as a SceneKit node to visualize the annotation if a node is not provided in an implementation of `AnnotationManagerDelegate.node(for:)`
+
+let annotation = Annotation(location: location, calloutImage: nil)
+self.annotationManager.addAnnotation(annotation: annotation)
+
+// Create and add an annotation with an image that will be shown above the annotation as a callout view. `calloutImage` is a UIImage
+
+let annotationWithCallout = Annotation(location: location, calloutImage: calloutImage)
+self.annotationManager.addAnnotation(annotation: annotationWithCallout)
+
+// Remove an annotation. The annotation manager will remove the annotation instance and its associated SceneKit node
+
+annotationManager.removeAnnotation(annotation: annotation)
+
+...
+
+```
+
+##### Provide your own SceneKit nodes for annotations
+
+Although MapboxARKit provides default red spheres to visualize added annotations, applications may want different nodes. This can be useful when adding 3d models. the `node(for:)` delegate method in `AnnotationManagerDelegate` allows an application to pass associate arbitrary nodes with annotations for a location.
+
+```Swift
+extension ViewController: AnnotationManagerDelegate {
+    func node(for annotation: Annotation) -> SCNNode? {
+        return createSpecialNode(for: annotation)
+    }
+}
+```
 
 ### Installation
 
@@ -24,7 +113,7 @@ Although there has not yet been a beta release of this library yet, you can stil
 # The MapboxARKit pod
 pod 'MapboxARKit', :git => 'git@github.com:mapbox/mapbox-arkit-ios.git'
 
-# The Turf-swift dependency must be installed manually in the client app until it is published
+# The Turf-swift dependency must be installed manually in the client app until the Turf pod is published on CocoaPods
 pod 'Turf-swift', :git => 'git@github.com:mapbox/turf-swift.git'
 ```
 
