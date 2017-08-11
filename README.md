@@ -1,4 +1,4 @@
-# MapboxARKit 
+# MapboxARKit
 
 Utilities for combining Mapbox maps and location services with ARKit in your applications.
 
@@ -6,7 +6,7 @@ _**Warning:** The MapboxARKit API is **experimental** and will change. It is pub
 
 ### Usage
 
-##### Import MapboxARK
+##### Import MapboxARKit
 
 ```Swift
 import MapboxARKit
@@ -35,7 +35,7 @@ override func viewDidLoad() {
     // Become the delegate of the annotation manager
     annotationManager.delegate = self
         
-    }
+}
 ```
 
 ##### Monitor ARKit camera state readiness
@@ -54,6 +54,7 @@ extension ViewController: AnnotationManagerDelegate {
             break
         }
     }
+}
 ```
 
 ##### Annotation management of annotations that represent a real world location with a SceneKit node
@@ -116,8 +117,6 @@ pod 'MapboxARKit', :git => 'git@github.com:mapbox/mapbox-arkit-ios.git'
 # The Turf-swift dependency must be installed manually in the client app until the Turf pod is published on CocoaPods
 pod 'Turf-swift', :git => 'git@github.com:mapbox/turf-swift.git'
 ```
-
-NOTE: There is currently an issue with the Xcode beta and GPU frame capture: https://stackoverflow.com/questions/45368426/mapbox-crashes-when-used-with-scenekit. You can fix that by following these instructions: https://stackoverflow.com/questions/31264537/adding-google-maps-as-subview-crashes-ios-app-with-exc-bad/31445847#31445847 -- If you see this error in your project, edit your scheme and change "GPU Frame Capture" from "Automatically Enabled" or "OpenGL ES" to either "Metal" or "Disabled"
 
 #### Running the sample project
 
