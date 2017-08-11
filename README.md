@@ -68,17 +68,17 @@ In view controller logic that is exercised after an ARSession is ready (see abov
 
 // Set the origin location of the annotation manager. The originLocation is a CLLocation that is as close as possible to the actual location (latitude, longitude) of the ARKit session origin point in the real world
 
-self.annotationManager.originLocation = originLocation
+annotationManager.originLocation = originLocation
 
 // Create and add an annotation, MapboxARKit will supply a default red sphere as a SceneKit node to visualize the annotation if a node is not provided in an implementation of `AnnotationManagerDelegate.node(for:)`
 
 let annotation = Annotation(location: location, calloutImage: nil)
-self.annotationManager.addAnnotation(annotation: annotation)
+annotationManager.addAnnotation(annotation: annotation)
 
 // Create and add an annotation with an image that will be shown above the annotation as a callout view. `calloutImage` is a UIImage
 
 let annotationWithCallout = Annotation(location: location, calloutImage: calloutImage)
-self.annotationManager.addAnnotation(annotation: annotationWithCallout)
+annotationManager.addAnnotation(annotation: annotationWithCallout)
 
 // Remove an annotation. The annotation manager will remove the annotation instance and its associated SceneKit node
 
@@ -105,7 +105,7 @@ extension ViewController: AnnotationManagerDelegate {
 **Requirements:**
 * Xcode 9 Beta 5 or higher
 * An iDevice with an A9 (or greater) processor running iOS 11 Beta 5 or higher
-* [Carthage](https://github.com/Carthage/Carthage) )for development and running the sample app)
+* [Carthage](https://github.com/Carthage/Carthage) (for development and running the sample app)
 * [CocoaPods](http://guides.cocoapods.org/using/getting-started.html#installation) (for installing the library in your own app)
 
 #### Adding MapboxARKit to your iOS app
