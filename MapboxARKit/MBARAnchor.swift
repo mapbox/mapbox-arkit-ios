@@ -54,27 +54,3 @@ internal extension matrix_float4x4 {
     }
     
 }
-
-internal extension CLLocation {
-    
-    func bearingTo(endLocation: CLLocation) -> Float {
-        
-        var bearing: Float = 0.0
-        
-        let latitudeStart = GLKMathDegreesToRadians(Float(coordinate.latitude))
-        let longitudeStart = GLKMathDegreesToRadians(Float(coordinate.longitude))
-        let latitudeEnd = GLKMathDegreesToRadians(Float(endLocation.coordinate.latitude))
-        let longitudeEnd = GLKMathDegreesToRadians(Float(endLocation.coordinate.longitude))
-        
-        let longitudinalDistance = longitudeEnd - longitudeStart
-        
-        let y = sin(longitudinalDistance) * cos(latitudeEnd)
-        let x = cos(latitudeStart) * sin(latitudeEnd) - sin(latitudeStart) * cos(latitudeEnd) * cos(longitudinalDistance)
-        let radiansBearing = atan2(y, x)
-        
-        bearing = GLKMathRadiansToDegrees(radiansBearing)
-        
-        return bearing
-    }
-    
-}
