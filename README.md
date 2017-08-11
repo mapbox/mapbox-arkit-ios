@@ -4,6 +4,8 @@ Utilities for combining Mapbox maps and location services with ARKit in your app
 
 _**Warning:** The MapboxARKit API is **experimental** and will change. It is published to be able to get feedback from the community. Please use with caution and open issues for any problems you see or missing features that should be added._
 
+![](documentation/images/mapbox_directions_arkit.jpeg)
+
 ### Usage
 
 ##### Import MapboxARKit
