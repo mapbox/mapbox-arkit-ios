@@ -61,7 +61,7 @@ extension ViewController: AnnotationManagerDelegate {
 
 ##### Annotation management of annotations that represent a real world location with a SceneKit node
 
-In view controller logic that is exercised after an ARSession is ready (see above), you can tell your AnnotationManager where it is in the world and ask it to place annotations (that are actually ARAnchros) representing other geographic locations in the world.
+In view controller logic that is exercised after an ARSession is ready (see above), you can tell your AnnotationManager where it is in the world and ask it to place annotations (that are actually ARAnchor instances) representing other geographic locations in the world.
 
 ```Swift
 ...
