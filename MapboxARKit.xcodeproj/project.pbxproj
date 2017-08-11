@@ -29,6 +29,7 @@
 		40DEF9AE1F3CE1570089629A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40DEF9AC1F3CE1570089629A /* Main.storyboard */; };
 		40DEF9B01F3CE1570089629A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40DEF9AF1F3CE1570089629A /* Assets.xcassets */; };
 		40DEF9B31F3CE1570089629A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40DEF9B11F3CE1570089629A /* LaunchScreen.storyboard */; };
+		40F3F19E1F3E349A00FF419C /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 40F3F19D1F3E349A00FF419C /* art.scnassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		40DEF9AF1F3CE1570089629A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40DEF9B21F3CE1570089629A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40DEF9B41F3CE1570089629A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40F3F19D1F3E349A00FF419C /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,8 +182,9 @@
 				40DEF9A81F3CE1570089629A /* AppDelegate.swift */,
 				40DEF9AA1F3CE1570089629A /* ViewController.swift */,
 				40DEF9AC1F3CE1570089629A /* Main.storyboard */,
-				40DEF9AF1F3CE1570089629A /* Assets.xcassets */,
 				40DEF9B11F3CE1570089629A /* LaunchScreen.storyboard */,
+				40F3F19D1F3E349A00FF419C /* art.scnassets */,
+				40DEF9AF1F3CE1570089629A /* Assets.xcassets */,
 				40DEF9B41F3CE1570089629A /* Info.plist */,
 			);
 			path = MapboxARKitDemoApp;
@@ -321,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40DEF9B31F3CE1570089629A /* LaunchScreen.storyboard in Resources */,
+				40F3F19E1F3E349A00FF419C /* art.scnassets in Resources */,
 				40DEF9B01F3CE1570089629A /* Assets.xcassets in Resources */,
 				40DEF9AE1F3CE1570089629A /* Main.storyboard in Resources */,
 			);

@@ -158,7 +158,7 @@ class ViewController: UIViewController {
                 let distance = Turf.distance(along: polyline)
                 
                 // Walk the route line and add a small AR node and map view annotation every metersPerNode
-                for i in stride(from: 0, to: distance, by: metersPerNode) {
+                for i in stride(from: metersPerNode, to: distance - metersPerNode, by: metersPerNode) {
                     // Use Turf to find the coordinate of each incremented distance along the polyline
                     if let nextCoordinate = Turf.coordinate(at: i, fromStartOf: polyline) {
                         let interpolatedStepLocation = CLLocation(latitude: nextCoordinate.latitude, longitude: nextCoordinate.longitude)
@@ -257,10 +257,8 @@ extension ViewController: AnnotationManagerDelegate {
     func node(for annotation: Annotation) -> SCNNode? {
         
         if annotation.calloutImage == nil {
-            // Uncomment and remove `return nil` to provide a custom node
-            // otherwise MapboxARKit's AnnotationManager will provide a default view for this anchor
-            // return return createSphereNode(with: 0.2, firstColor: UIColor.green, secondColor: UIColor.blue)
-            return nil
+            // Comment `createLightBulbNode` and add `return nil` to use the default node
+            return createLightBulbNode()
         } else {
             let firstColor = UIColor(red: 0.0, green: 99/255.0, blue: 175/255.0, alpha: 1.0)
             return createSphereNode(with: 0.5, firstColor: firstColor, secondColor: UIColor.green)
@@ -277,6 +275,22 @@ extension ViewController: AnnotationManagerDelegate {
         sphereNode.animateInterpolatedColor(from: firstColor, to: secondColor, duration: 1)
         
         return sphereNode
+    }
+    
+    func createLightBulbNode() -> SCNNode {
+        let lightBulbNode = collada2SCNNode(filepath: "art.scnassets/light-bulb.dae")
+        lightBulbNode.scale = SCNVector3Make(0.25, 0.25, 0.25)
+        return lightBulbNode
+    }
+    
+    func collada2SCNNode(filepath:String) -> SCNNode {
+        let node = SCNNode()
+        let scene = SCNScene(named: filepath, inDirectory: nil, options: [SCNSceneSource.LoadingOption.animationImportPolicy: SCNSceneSource.AnimationImportPolicy.doNotPlay])
+        let nodeArray = scene!.rootNode.childNodes
+        for childNode in nodeArray {
+            node.addChildNode(childNode as SCNNode)
+        }
+        return node
     }
     
 }
