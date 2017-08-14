@@ -1,4 +1,5 @@
-# MapboxARKit
+![mapbox+arkit](https://user-images.githubusercontent.com/5862541/29296653-7d786688-8110-11e7-95d7-776322499da4.png)
+
 
 Utilities for combining Mapbox maps and location services with ARKit in your applications.
 
