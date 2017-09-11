@@ -122,19 +122,34 @@ extension AnnotationManager: ARSCNViewDelegate {
     }
     
     func createCalloutNode(with image: UIImage, node: SCNNode) -> SCNNode {
-        let calloutGeometry = SCNPlane(width: 1.5, height: 1.5)
-        calloutGeometry.cornerRadius = 0.1
+        
+        var width: CGFloat = 0.0
+        var height: CGFloat = 0.0
+        
+        if image.size.width >= image.size.height {
+            width = image.size.width / image.size.height
+            height = 1.0
+        } else {
+            width = 1.0
+            height = image.size.height / image.size.width
+        }
+        
+        let calloutGeometry = SCNPlane(width: width, height: height)
         calloutGeometry.firstMaterial?.diffuse.contents = image
         
         let calloutNode = SCNNode(geometry: calloutGeometry)
         var nodePosition = node.position
-        nodePosition.y = 2.0
+        let (min, max) = node.boundingBox
+        let nodeHeight = max.y - min.y
+        nodePosition.y = nodeHeight + 0.5
+        
         calloutNode.position = nodePosition
         
         let constraint = SCNBillboardConstraint()
+        constraint.freeAxes = [.Y]
         calloutNode.constraints = [constraint]
         
-        return calloutNode 
+        return calloutNode
     }
     
 }
