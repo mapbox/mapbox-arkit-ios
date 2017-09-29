@@ -115,10 +115,10 @@ Although there has not yet been a beta release of this library yet, you can stil
 
 ```
 # The MapboxARKit pod
-pod 'MapboxARKit', :git => 'git@github.com:mapbox/mapbox-arkit-ios.git'
+pod 'MapboxARKit', :git => 'https://github.com/mapbox/mapbox-arkit-ios.git'
 
 # The Turf-swift dependency must be installed manually in the client app until the Turf pod is published on CocoaPods
-pod 'Turf-swift', :git => 'git@github.com:mapbox/turf-swift.git'
+pod 'Turf-swift', :git => 'https://github.com/mapbox/turf-swift.git'
 ```
 
 #### Running the sample project
