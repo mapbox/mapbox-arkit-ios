@@ -153,14 +153,12 @@ class ViewController: UIViewController {
                 }
                 
                 let metersPerNode: CLLocationDistance = 5
-                
-                // Use Turf to find the total distance of the polyline
-                let distance = Turf.distance(along: polyline)
+                let turfPolyline = Polyline(polyline) 
                 
                 // Walk the route line and add a small AR node and map view annotation every metersPerNode
-                for i in stride(from: metersPerNode, to: distance - metersPerNode, by: metersPerNode) {
+                for i in stride(from: metersPerNode, to: turfPolyline.distance() - metersPerNode, by: metersPerNode) {
                     // Use Turf to find the coordinate of each incremented distance along the polyline
-                    if let nextCoordinate = Turf.coordinate(at: i, fromStartOf: polyline) {
+                    if let nextCoordinate = turfPolyline.coordinateFromStart(distance: i) {
                         let interpolatedStepLocation = CLLocation(latitude: nextCoordinate.latitude, longitude: nextCoordinate.longitude)
                         
                         // Update feature collection for map view
