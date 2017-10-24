@@ -7,6 +7,11 @@ import CoreLocation
     @objc optional func node(for annotation: Annotation) -> SCNNode?
     @objc optional func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera)
     
+    @objc optional func MBRenderer(_ renderer: SCNSceneRenderer, time: TimeInterval)
+    @objc optional func MBRenderer(_ renderer: SCNSceneRenderer, addedNode: SCNNode, anchor: ARAnchor)
+    @objc optional func MBRenderer(_ renderer: SCNSceneRenderer, updatedNode: SCNNode, anchor: ARAnchor)
+    @objc optional func MBRenderer(_ renderer: SCNSceneRenderer, removedNode: SCNNode, anchor: ARAnchor)
+
 }
 
 public class AnnotationManager: NSObject {
@@ -85,6 +90,19 @@ extension AnnotationManager: ARSCNViewDelegate {
         delegate?.session?(session, cameraDidChangeTrackingState: camera)
     }
     
+    
+    public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        delegate?.MBRenderer!(renderer, time: time)
+    }
+    
+    public func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        delegate?.MBRenderer!(renderer, updatedNode: node,anchor: anchor )
+    }
+    
+    public func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
+        delegate?.MBRenderer!(renderer, removedNode: node,anchor: anchor )
+    }
+
     public func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         
         // Handle MBARAnchor
@@ -110,7 +128,7 @@ extension AnnotationManager: ARSCNViewDelegate {
             annotationsByNode[newNode] = annotation
         }
         
-        // TODO: let delegate provide a node for a non-MBARAnchor
+        delegate?.AMRenderer!(renderer, addedNode: node,anchor: anchor )
     }
     
     // MARK: - Utility methods for ARSCNViewDelegate
