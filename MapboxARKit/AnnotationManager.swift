@@ -128,7 +128,7 @@ extension AnnotationManager: ARSCNViewDelegate {
             annotationsByNode[newNode] = annotation
         }
         
-        delegate?.AMRenderer!(renderer, addedNode: node,anchor: anchor )
+        delegate?.MBRenderer!(renderer, addedNode: node,anchor: anchor )
     }
     
     // MARK: - Utility methods for ARSCNViewDelegate
