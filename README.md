@@ -104,8 +104,8 @@ extension ViewController: AnnotationManagerDelegate {
 ### Installation
 
 **Requirements:**
-* Xcode 9 Beta 5 or higher
-* An iDevice with an A9 (or greater) processor running iOS 11 Beta 5 or higher
+* Xcode 9 or greater
+* An iDevice with an A9 (or greater) processor running iOS 11 or greater
 * [Carthage](https://github.com/Carthage/Carthage) (for development and running the sample app)
 * [CocoaPods](http://guides.cocoapods.org/using/getting-started.html#installation) (for installing the library in your own app)
 
