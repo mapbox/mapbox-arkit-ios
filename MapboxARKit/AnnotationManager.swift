@@ -89,7 +89,10 @@ extension AnnotationManager: ARSCNViewDelegate {
         
         // Handle MBARAnchor
         if let anchor = anchor as? MBARAnchor {
-            let annotation = annotationsByAnchor[anchor]!
+            guard let annotation = annotationsByAnchor[anchor] else {
+                print("[MapboxARKit.AnnotationManager.renderer didAdd node:] Cannot render node :: annotationsByAnchor[anchor] is nil")
+                return
+            }
             
             var newNode: SCNNode!
             
