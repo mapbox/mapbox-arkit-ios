@@ -19,7 +19,17 @@ internal extension simd_float4x4 {
     // the bearing of the end location and "push" it out the required distance
     func transformMatrix(originLocation: CLLocation, location: CLLocation) -> simd_float4x4 {
         // Determine the distance and bearing between the start and end locations
-        let distance = Float(location.distance(from: originLocation))        
+        var distance = Float(location.distance(from: originLocation))
+        
+        // Workaround to set the minum size of the node. Enforce the distance if distance is over than 200m
+        if distance > 200 {
+           distance = 200
+        }
+        
+        if distance < 50 {
+            distance = 50
+        }
+        
         let bearing = GLKMathDegreesToRadians(Float(originLocation.coordinate.direction(to: location.coordinate)))
         
         // Effectively copy the position of the start location, rotate it about
