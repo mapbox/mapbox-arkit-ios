@@ -76,9 +76,9 @@ open class AnnotationManager: NSObject {
         }
     }
     
-    public func hideAllNodes(isHide: Bool) {
+    public func hideAllNodes(isHidden: Bool) {
         for node in annotationsByNode.keys {
-            node.isHidden = isHide
+            node.isHidden = isHidden
         }
     }
     
