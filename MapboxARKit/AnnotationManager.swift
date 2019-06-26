@@ -5,11 +5,12 @@ import CoreLocation
 @objc public protocol AnnotationManagerDelegate {
     
     @objc optional func node(for annotation: Annotation) -> SCNNode?
+    @objc optional func scaleNode(node: SCNNode, location: CLLocation) -> SCNNode?
     @objc optional func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera)
     
 }
 
-public class AnnotationManager: NSObject {
+open class AnnotationManager: NSObject {
     
     public private(set) var session: ARSession
     public private(set) var sceneView: ARSCNView?
@@ -37,7 +38,7 @@ public class AnnotationManager: NSObject {
         
         // Create a Mapbox AR anchor anchor at the transformed position
         let anchor = MBARAnchor(originLocation: originLocation, location: annotation.location)
-        
+
         // Add the anchor to the session
         session.add(anchor: anchor)
         
@@ -75,6 +76,19 @@ public class AnnotationManager: NSObject {
         }
     }
     
+    public func hideAllNodes(isHidden: Bool) {
+        for node in annotationsByNode.keys {
+            node.isHidden = isHidden
+        }
+    }
+    
+    open func addNode(newNode: SCNNode, annotation: Annotation) {
+        
+        if let calloutImage = annotation.calloutImage {
+            let calloutNode = createCalloutNode(with: calloutImage, node: newNode)
+            newNode.addChildNode(calloutNode)
+        }
+    }
 }
 
 // MARK: - ARSCNViewDelegate
@@ -102,14 +116,15 @@ extension AnnotationManager: ARSCNViewDelegate {
             } else {
                 newNode = createDefaultNode()
             }
-                        
-            if let calloutImage = annotation.calloutImage {
-                let calloutNode = createCalloutNode(with: calloutImage, node: newNode)
-                newNode.addChildNode(calloutNode)
+            
+            let scaledNode = delegate?.scaleNode?(node: newNode, location: annotation.location)
+            if scaledNode != nil {
+                newNode = scaledNode
             }
+            addNode(newNode: newNode, annotation: annotation)
             
             node.addChildNode(newNode)
-            
+
             annotationsByNode[newNode] = annotation
         }
         

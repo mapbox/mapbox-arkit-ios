@@ -1,6 +1,6 @@
 import CoreLocation
 
-public class Annotation: NSObject {
+open class Annotation: NSObject {
     
     public var location: CLLocation
     public var calloutImage: UIImage?
