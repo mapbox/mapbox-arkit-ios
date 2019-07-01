@@ -19,6 +19,7 @@ open class AnnotationManager: NSObject {
     public private(set) var annotationsByNode = [SCNNode: Annotation]()
     public var delegate: AnnotationManagerDelegate?
     public var originLocation: CLLocation?
+    private var nodesAddedDirectlyByAnchor: [ARAnchor: SCNNode] = [:]
     
     public init(session: ARSession) {
         self.session = session
@@ -89,6 +90,17 @@ open class AnnotationManager: NSObject {
             newNode.addChildNode(calloutNode)
         }
     }
+    
+    public func addNodeDirectly(nodeToAdd: SCNNode, anchor: ARAnchor) {
+        nodesAddedDirectlyByAnchor[anchor] = nodeToAdd
+        session.add(anchor: anchor)
+    }
+    
+    public func removeDirectlyAddedNodes() {
+        for (key, _) in nodesAddedDirectlyByAnchor {
+            session.remove(anchor: key)
+        }
+    }
 }
 
 // MARK: - ARSCNViewDelegate
@@ -126,6 +138,10 @@ extension AnnotationManager: ARSCNViewDelegate {
             node.addChildNode(newNode)
 
             annotationsByNode[newNode] = annotation
+        } else {
+            if nodesAddedDirectlyByAnchor.isEmpty == false && nodesAddedDirectlyByAnchor[anchor] != nil {
+                node.addChildNode(nodesAddedDirectlyByAnchor[anchor]!)
+            }
         }
         
         // TODO: let delegate provide a node for a non-MBARAnchor
