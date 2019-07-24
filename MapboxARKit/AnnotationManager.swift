@@ -28,6 +28,7 @@ open class AnnotationManager: NSObject {
     convenience public init(sceneView: ARSCNView) {
         self.init(session: sceneView.session)
         session = sceneView.session
+        self.sceneView = sceneView
         sceneView.delegate = self
     }
     
@@ -53,17 +54,35 @@ open class AnnotationManager: NSObject {
             addAnnotation(annotation: annotation)
         }
     }
+
+    private func removeNodeReference() {
+        for node in annotationsByNode.keys {
+            node.enumerateHierarchy({ (node, _) in
+                node.removeFromParentNode()
+            })
+        }
+        annotationsByNode.removeAll()
+        sceneView?.scene.rootNode.enumerateChildNodes({ (node, _) in
+            node.removeFromParentNode()
+            node.enumerateHierarchy({ (node, _) in
+                node.removeFromParentNode()
+            })
+        })
+    }
     
     public func removeAllAnnotations() {
+        removeNodeReference()
+        
         for anchor in anchors {
             session.remove(anchor: anchor)
         }
-        
         anchors.removeAll()
         annotationsByAnchor.removeAll()
     }
     
     public func removeAnnotations(annotations: [Annotation]) {
+        removeNodeReference()
+        
         for annotation in annotations {
             removeAnnotation(annotation: annotation)
         }
@@ -129,11 +148,12 @@ extension AnnotationManager: ARSCNViewDelegate {
                 newNode = createDefaultNode()
             }
             
+            addNode(newNode: newNode, annotation: annotation)
+            
             let scaledNode = delegate?.scaleNode?(node: newNode, location: annotation.location)
             if scaledNode != nil {
                 newNode = scaledNode
             }
-            addNode(newNode: newNode, annotation: annotation)
             
             node.addChildNode(newNode)
 
