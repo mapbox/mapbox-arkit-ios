@@ -12,8 +12,8 @@ import CoreLocation
 
 open class AnnotationManager: NSObject {
     
-    public private(set) var session: ARSession
-    public private(set) var sceneView: ARSCNView?
+    public private(set) weak var session: ARSession?
+    public private(set) weak var sceneView: ARSCNView?
     public private(set) var anchors = [ARAnchor]()
     public private(set) var annotationsByAnchor = [ARAnchor: Annotation]()
     public private(set) var annotationsByNode = [SCNNode: Annotation]()
@@ -27,8 +27,8 @@ open class AnnotationManager: NSObject {
     
     convenience public init(sceneView: ARSCNView) {
         self.init(session: sceneView.session)
-        session = sceneView.session
         self.sceneView = sceneView
+        session = sceneView.session
         sceneView.delegate = self
     }
     
@@ -38,11 +38,15 @@ open class AnnotationManager: NSObject {
             return
         }
         
+        guard let location = annotation.location else {
+            print("annotation's location is missing :: \(dump(annotation))")
+            return
+        }
         // Create a Mapbox AR anchor anchor at the transformed position
-        let anchor = MBARAnchor(originLocation: originLocation, location: annotation.location)
+        let anchor = MBARAnchor(originLocation: originLocation, location: annotation.location!)
 
         // Add the anchor to the session
-        session.add(anchor: anchor)
+        session?.add(anchor: anchor)
         
         anchors.append(anchor)
         annotation.anchor = anchor
@@ -54,35 +58,32 @@ open class AnnotationManager: NSObject {
             addAnnotation(annotation: annotation)
         }
     }
-
-    private func removeNodeReference() {
-        for node in annotationsByNode.keys {
-            node.enumerateHierarchy({ (node, _) in
-                node.removeFromParentNode()
-            })
+    
+    public func removeAllAnnotations() {
+        for anchor in anchors {
+            session?.remove(anchor: anchor)
         }
-        annotationsByNode.removeAll()
-        sceneView?.scene.rootNode.enumerateChildNodes({ (node, _) in
+        
+        sceneView!.scene.rootNode.enumerateChildNodes { (node, stop) in
+            
             node.removeFromParentNode()
             node.enumerateHierarchy({ (node, _) in
                 node.removeFromParentNode()
             })
-        })
-    }
-    
-    public func removeAllAnnotations() {
-        removeNodeReference()
-        
-        for anchor in anchors {
-            session.remove(anchor: anchor)
         }
+        
+        
+        annotationsByNode.removeAll()
         anchors.removeAll()
+        
+        for e in annotationsByAnchor {
+            e.value.calloutImage = nil
+            e.value.location = nil
+        }
         annotationsByAnchor.removeAll()
     }
     
     public func removeAnnotations(annotations: [Annotation]) {
-        removeNodeReference()
-        
         for annotation in annotations {
             removeAnnotation(annotation: annotation)
         }
@@ -90,9 +91,16 @@ open class AnnotationManager: NSObject {
     
     public func removeAnnotation(annotation: Annotation) {
         if let anchor = annotation.anchor {
-            session.remove(anchor: anchor)
+            session?.remove(anchor: anchor)
             anchors.remove(at: anchors.index(of: anchor)!)
+            
+            for e in annotationsByAnchor {
+                e.value.calloutImage = nil
+                e.value.location = nil
+            }
+            
             annotationsByAnchor.removeValue(forKey: anchor)
+            annotation.anchor = nil
         }
     }
     
@@ -112,12 +120,12 @@ open class AnnotationManager: NSObject {
     
     public func addNodeDirectly(nodeToAdd: SCNNode, anchor: ARAnchor) {
         nodesAddedDirectlyByAnchor[anchor] = nodeToAdd
-        session.add(anchor: anchor)
+        session?.add(anchor: anchor)
     }
     
     public func removeDirectlyAddedNodes() {
         for (key, _) in nodesAddedDirectlyByAnchor {
-            session.remove(anchor: key)
+            session?.remove(anchor: key)
         }
     }
 }
@@ -148,12 +156,11 @@ extension AnnotationManager: ARSCNViewDelegate {
                 newNode = createDefaultNode()
             }
             
-            addNode(newNode: newNode, annotation: annotation)
-            
-            let scaledNode = delegate?.scaleNode?(node: newNode, location: annotation.location)
+            let scaledNode = delegate?.scaleNode?(node: newNode, location: annotation.location!)
             if scaledNode != nil {
                 newNode = scaledNode
             }
+            addNode(newNode: newNode, annotation: annotation)
             
             node.addChildNode(newNode)
 
