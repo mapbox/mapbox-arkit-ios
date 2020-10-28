@@ -7,6 +7,16 @@ import CoreLocation
     @objc optional func node(for annotation: Annotation) -> SCNNode?
     @objc optional func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera)
     
+    @objc optional func renderer(_ renderer: SCNSceneRenderer, time: TimeInterval)
+    
+    @objc optional func renderer(_ renderer: SCNSceneRenderer, addedNode: SCNNode, mbAnchor anchor: MBARAnchor)
+    @objc optional func renderer(_ renderer: SCNSceneRenderer, updatedNode: SCNNode, mbAnchor anchor: MBARAnchor)
+    @objc optional func renderer(_ renderer: SCNSceneRenderer, removedNode: SCNNode, mbAnchor anchor: MBARAnchor)
+    
+    @objc optional func renderer(_ renderer: SCNSceneRenderer, addedNode: SCNNode, arAnchor anchor: ARAnchor)
+    @objc optional func renderer(_ renderer: SCNSceneRenderer, updatedNode: SCNNode, arAnchor anchor: ARAnchor)
+    @objc optional func renderer(_ renderer: SCNSceneRenderer, removedNode: SCNNode, arAnchor anchor: ARAnchor)
+
 }
 
 public class AnnotationManager: NSObject {
@@ -85,10 +95,32 @@ extension AnnotationManager: ARSCNViewDelegate {
         delegate?.session?(session, cameraDidChangeTrackingState: camera)
     }
     
+    
+    public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        delegate?.renderer?(renderer, time: time)
+    }
+
+    public func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        if let anchor = anchor as? MBARAnchor {
+            delegate?.renderer?(renderer, updatedNode: node, mbAnchor: anchor )
+        } else {
+            delegate?.renderer?(renderer, updatedNode: node,arAnchor: anchor )
+        }
+    }
+    
+    public func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
+         if let anchor = anchor as? MBARAnchor {
+            delegate?.renderer?(renderer, removedNode: node,mbAnchor: anchor )
+         } else {
+            delegate?.renderer?(renderer, removedNode: node,arAnchor: anchor )
+         }
+    }
+
     public func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        
+      
         // Handle MBARAnchor
         if let anchor = anchor as? MBARAnchor {
+            
             let annotation = annotationsByAnchor[anchor]!
             
             var newNode: SCNNode!
@@ -99,26 +131,28 @@ extension AnnotationManager: ARSCNViewDelegate {
             } else {
                 newNode = createDefaultNode()
             }
-                        
+            
             if let calloutImage = annotation.calloutImage {
                 let calloutNode = createCalloutNode(with: calloutImage, node: newNode)
                 newNode.addChildNode(calloutNode)
             }
             
             node.addChildNode(newNode)
-            
             annotationsByNode[newNode] = annotation
+            delegate?.renderer?(renderer, addedNode: node,mbAnchor: anchor  )
+        } else {
+            delegate?.renderer?(renderer, addedNode: node, arAnchor: anchor  )
         }
-        
-        // TODO: let delegate provide a node for a non-MBARAnchor
     }
     
     // MARK: - Utility methods for ARSCNViewDelegate
     
     func createDefaultNode() -> SCNNode {
+        
         let geometry = SCNSphere(radius: 0.2)
         geometry.firstMaterial?.diffuse.contents = UIColor.red
         return SCNNode(geometry: geometry)
+        
     }
     
     func createCalloutNode(with image: UIImage, node: SCNNode) -> SCNNode {
