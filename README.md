@@ -15,7 +15,7 @@ _**Warning:** The MapboxARKit API is **experimental** and will change. It is pub
 import MapboxARKit
 ```
 
-##### Declare an an annotation manager instance in your view controller
+##### Declare an annotation manager instance in your view controller
 
 ```Swift
 ...
